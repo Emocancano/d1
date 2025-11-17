@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildirim Ayarları - Verde</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notifications-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="search-container">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">V</div>
+                    <div class="logo-text">Verde</div>
+                </a>
+            </div>
+            <div class="auth-buttons" style="display: none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i>Giriş Yap</button>
+                <button class="signup-btn" onclick="window.location.href='login.html'"><i class="fas fa-user-plus"></i>Kayıt Ol</button>
+            </div>
+            <div class="user-menu" style="display: none;">
+                <button class="user-button">
+                    <img src="https://placehold.co/32x32" alt="Profil" class="avatar">
+                    <span>Hesabım</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="https://placehold.co/40x40" alt="Profil" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Kullanıcı Adı</span>
+                            <span class="user-email">kullanici@example.com</span>
+                        </div>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <a href="profil.html" class="dropdown-item"><i class="fas fa-user"></i><span>Profilim</span></a>
+                    <a href="ilanlarim.html" class="dropdown-item"><i class="fas fa-list"></i><span>İlanlarım</span></a>
+                    <a href="favorilerim.html" class="dropdown-item"><i class="fas fa-heart"></i><span>Favorilerim</span></a>
+                    <a href="mesajlar.html" class="dropdown-item"><i class="fas fa-envelope"></i><span>Mesajlarım</span><span class="notification-count">2</span></a>
+                    <a href="ayarlar.html" class="dropdown-item"><i class="fas fa-cog"></i><span>Ayarlar</span></a>
+                    <hr class="dropdown-divider">
+                    <a href="#logout" class="dropdown-item logout"><i class="fas fa-sign-out-alt"></i><span>Çıkış Yap</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="settings-page">
+        <div class="container">
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Bildirimler</span>
+                </div>
+                <div class="header-content">
+                    <div class="header-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="header-text">
+                        <h1>Bildirim Ayarları</h1>
+                        <p class="header-subtitle">Bildirim tercihlerinizi özelleştirin ve hangi durumlarda bilgilendirilmek istediğinizi belirleyin</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <nav class="settings-nav">
+                        <a href="hesap-bilgileri.html" class="nav-item"><i class="fas fa-user"></i><span>Hesap Bilgileri</span></a>
+                        <a href="guvenlik.html" class="nav-item"><i class="fas fa-shield-alt"></i><span>Güvenlik</span></a>
+                        <a href="gizlilik.html" class="nav-item"><i class="fas fa-lock"></i><span>Gizlilik</span></a>
+                        <a href="bildirimler.html" class="nav-item active"><i class="fas fa-bell"></i><span>Bildirimler</span></a>
+                        <a href="gorunum.html" class="nav-item"><i class="fas fa-palette"></i><span>Görünüm</span></a>
+                        <a href="premium.html" class="nav-item"><i class="fas fa-crown"></i><span>Premium</span></a>
+                        <a href="veri-yonetimi.html" class="nav-item"><i class="fas fa-download"></i><span>Veri Yönetimi</span></a>
+                    </nav>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-section active">
+                        <!-- Ana Bildirim Kontrolü -->
+                        <div class="settings-card master-control">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-bell-slash"></i>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Ana Bildirim Kontrolü</h3>
+                                    <p>Tüm bildirimleri tek seferde etkinleştir veya devre dışı bırak</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="masterNotifications" class="toggle-input" checked>
+                                    <label for="masterNotifications" class="toggle-label"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- E-posta Bildirimleri -->
+                        <div class="settings-card notification-category">
+                            <div class="category-header">
+                                <div class="category-icon email">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>E-posta Bildirimleri</h3>
+                                    <p>E-posta ile alacağınız bildirimleri yönetin</p>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-group">
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Yeni Mesajlar</h4>
+                                        <p>Size gönderilen yeni mesajlar için e-posta bildirimi</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailMessages" class="toggle-input" checked>
+                                            <label for="emailMessages" class="toggle-label"></label>
+                                        </div>
+                                        <select class="frequency-select">
+                                            <option value="instant">Anında</option>
+                                            <option value="hourly">Saatlik</option>
+                                            <option value="daily">Günlük</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>İlan Güncellemeleri</h4>
+                                        <p>Verdiğiniz ilanlarla ilgili güncellemeler</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailAdUpdates" class="toggle-input" checked>
+                                            <label for="emailAdUpdates" class="toggle-label"></label>
+                                        </div>
+                                        <select class="frequency-select">
+                                            <option value="instant">Anında</option>
+                                            <option value="daily" selected>Günlük</option>
+                                            <option value="weekly">Haftalık</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Favori İlan Güncellemeleri</h4>
+                                        <p>Favorilediğiniz ilanların durumu değiştiğinde</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailFavorites" class="toggle-input" checked>
+                                            <label for="emailFavorites" class="toggle-label"></label>
+                                        </div>
+                                        <select class="frequency-select">
+                                            <option value="instant" selected>Anında</option>
+                                            <option value="daily">Günlük</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Pazarlama E-postaları</h4>
+                                        <p>Özel fırsatlar ve yeni özellik duyuruları</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="emailMarketing" class="toggle-input">
+                                            <label for="emailMarketing" class="toggle-label"></label>
+                                        </div>
+                                        <select class="frequency-select">
+                                            <option value="weekly">Haftalık</option>
+                                            <option value="monthly" selected>Aylık</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarayıcı Bildirimleri -->
+                        <div class="settings-card notification-category">
+                            <div class="category-header">
+                                <div class="category-icon browser">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Tarayıcı Bildirimleri</h3>
+                                    <p>Tarayıcınızda görüntülenecek anlık bildirimler</p>
+                                </div>
+                            </div>
+                            
+                            <div class="browser-notification-status" id="browserNotificationStatus">
+                                <div class="status-card">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    <div>
+                                        <h4>Tarayıcı İzni Gerekli</h4>
+                                        <p>Anlık bildirimler için tarayıcınızdan izin alınması gerekiyor</p>
+                                        <button class="btn-primary" onclick="requestNotificationPermission()">
+                                            <i class="fas fa-check"></i>
+                                            İzin Ver
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-group" id="browserNotificationSettings" style="display: none;">
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Yeni Mesajlar</h4>
+                                        <p>Anlık mesaj bildirimleri</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="browserMessages" class="toggle-input" checked>
+                                        <label for="browserMessages" class="toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>İlan Durumu</h4>
+                                        <p>İlanlarınızın durumu değiştiğinde</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="browserAdStatus" class="toggle-input" checked>
+                                        <label for="browserAdStatus" class="toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Sistem Bildirimleri</h4>
+                                        <p>Önemli sistem duyuruları</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="browserSystem" class="toggle-input" checked>
+                                        <label for="browserSystem" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SMS Bildirimleri -->
+                        <div class="settings-card notification-category">
+                            <div class="category-header">
+                                <div class="category-icon sms">
+                                    <i class="fas fa-sms"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>SMS Bildirimleri</h3>
+                                    <p>Telefon numaranıza gönderilecek mesajlar</p>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-group">
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Güvenlik Uyarıları</h4>
+                                        <p>Hesap güvenliği ile ilgili kritik bildirimlere</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="smsSecurity" class="toggle-input" checked disabled>
+                                        <label for="smsSecurity" class="toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Önemli İlan Güncellemeleri</h4>
+                                        <p>İlanlarınızla ilgili kritik durumlar</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="smsAdCritical" class="toggle-input" checked>
+                                        <label for="smsAdCritical" class="toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="notification-setting">
+                                    <div class="setting-info">
+                                        <h4>Promosyon SMS'leri</h4>
+                                        <p>Özel fırsatlar ve kampanyalar</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="smsPromo" class="toggle-input">
+                                        <label for="smsPromo" class="toggle-label"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sms-info">
+                                <i class="fas fa-info-circle"></i>
+                                <span>SMS ücretleri operatörünüz tarafından uygulanabilir. Standart SMS ücretleri geçerlidir.</span>
+                            </div>
+                        </div>
+
+                        <!-- Sessiz Saatler -->
+                        <div class="settings-card notification-category">
+                            <div class="category-header">
+                                <div class="category-icon quiet">
+                                    <i class="fas fa-moon"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Sessiz Saatler</h3>
+                                    <p>Belirli saatlerde bildirimleri otomatik olarak sustur</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quiet-hours-setting">
+                                <div class="setting-info">
+                                    <h4>Sessiz Saatleri Etkinleştir</h4>
+                                    <p>Belirli saatler arasında bildirimleri sustur</p>
+                                </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="quietHours" class="toggle-input">
+                                    <label for="quietHours" class="toggle-label"></label>
+                                </div>
+                            </div>
+
+                            <div class="quiet-hours-config" id="quietHoursConfig" style="display: none;">
+                                <div class="time-range">
+                                    <div class="time-input">
+                                        <label>Başlangıç</label>
+                                        <input type="time" value="22:00">
+                                    </div>
+                                    <div class="time-input">
+                                        <label>Bitiş</label>
+                                        <input type="time" value="07:00">
+                                    </div>
+                                </div>
+
+                                <div class="quiet-hours-exceptions">
+                                    <h4>İstisnalar</h4>
+                                    <label class="exception-option">
+                                        <input type="checkbox" checked>
+                                        <span>Güvenlik uyarıları</span>
+                                    </label>
+                                    <label class="exception-option">
+                                        <input type="checkbox">
+                                        <span>Acil mesajlar</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn-primary" onclick="saveNotificationSettings()">
+                                <i class="fas fa-save"></i>
+                                Ayarları Kaydet
+                            </button>
+                            <button class="btn-secondary" onclick="testNotifications()">
+                                <i class="fas fa-paper-plane"></i>
+                                Test Bildirimi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Notification helper functions
+        function showNotification(message, type = 'info') {
+            // Basit bir bildirim sistemi - daha sonra geliştirilecek
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'times-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Geçici stil
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 500;
+                max-width: 350px;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // 4 saniye sonra kaldır
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+        }
+
+        // Ana bildirim kontrolü
+        document.getElementById('masterNotifications').addEventListener('change', function() {
+            const isEnabled = this.checked;
+            const allToggles = document.querySelectorAll('.toggle-input:not(#masterNotifications)');
+            
+            allToggles.forEach(toggle => {
+                if (!toggle.disabled) {
+                    toggle.checked = isEnabled;
+                }
+            });
+
+            showNotification(
+                isEnabled ? 'Tüm bildirimler etkinleştirildi' : 'Tüm bildirimler devre dışı bırakıldı',
+                isEnabled ? 'success' : 'info'
+            );
+        });
+
+        // Bildirim izni kontrolü
+        function checkNotificationPermission() {
+            const status = document.getElementById('browserNotificationStatus');
+            const settings = document.getElementById('browserNotificationSettings');
+            
+            if ('Notification' in window) {
+                if (Notification.permission === 'granted') {
+                    status.style.display = 'none';
+                    settings.style.display = 'block';
+                } else if (Notification.permission === 'denied') {
+                    status.innerHTML = `
+                        <div class="status-card error">
+                            <i class="fas fa-times-circle"></i>
+                            <div>
+                                <h4>Bildirimler Engellendi</h4>
+                                <p>Tarayıcı ayarlarından bildirimlere izin verin</p>
+                                <button class="btn-secondary" onclick="window.open('https://support.google.com/chrome/answer/3220216', '_blank')">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Nasıl Açılır?
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                status.innerHTML = `
+                    <div class="status-card error">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <h4>Bildirimler Desteklenmiyor</h4>
+                            <p>Tarayıcınız push bildirimleri desteklemiyor</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function requestNotificationPermission() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    checkNotificationPermission();
+                    if (permission === 'granted') {
+                        showNotification('Tarayıcı bildirimleri başarıyla etkinleştirildi!', 'success');
+                        // Test bildirimi gönder
+                        setTimeout(() => {
+                            new Notification('Verde - Bildirimler Aktif! 🎉', {
+                                body: 'Artık önemli güncellemelerden haberdar olacaksınız.',
+                                icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%2310b981"/><text x="50" y="65" text-anchor="middle" fill="white" font-size="40" font-weight="bold">V</text></svg>',
+                                tag: 'verde-welcome'
+                            });
+                        }, 1000);
+                    } else {
+                        showNotification('Bildirim izni reddedildi', 'error');
+                    }
+                });
+            }
+        }
+
+        // Sessiz saatler toggle
+        document.getElementById('quietHours').addEventListener('change', function() {
+            const config = document.getElementById('quietHoursConfig');
+            config.style.display = this.checked ? 'block' : 'none';
+            
+            if (this.checked) {
+                showNotification('Sessiz saatler etkinleştirildi', 'success');
+            } else {
+                showNotification('Sessiz saatler devre dışı bırakıldı', 'info');
+            }
+        });
+
+        // Ayarları kaydetme
+        function saveNotificationSettings() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            // Loading state
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Kaydediliyor...';
+            button.disabled = true;
+            
+            // Simülasyon
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                showNotification('Bildirim ayarlarınız başarıyla kaydedildi!', 'success');
+                
+                // Sayfa analytics'i için
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'notification_settings_saved', {
+                        'event_category': 'settings',
+                        'event_label': 'notification_preferences'
+                    });
+                }
+            }, 1500);
+        }
+
+        // Test bildirimi
+        function testNotifications() {
+            const button = event.target;
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Gönderiliyor...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                if ('Notification' in window && Notification.permission === 'granted') {
+                    new Notification('Verde Test Bildirimi 🧪', {
+                        body: 'Bu bir test bildirimidir. Bildirim ayarlarınız düzgün çalışıyor!',
+                        icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%2310b981"/><text x="50" y="65" text-anchor="middle" fill="white" font-size="40" font-weight="bold">V</text></svg>',
+                        tag: 'verde-test',
+                        requireInteraction: false
+                    });
+                    showNotification('Test bildirimi gönderildi!', 'success');
+                } else {
+                    showNotification('Test e-postası e-posta adresinize gönderildi!', 'info');
+                }
+            }, 1000);
+        }
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            checkNotificationPermission();
+            
+            // Animasyon için delay
+            const cards = document.querySelectorAll('.settings-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Toggle değişikliklerini dinle
+            const toggles = document.querySelectorAll('.toggle-input');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('change', function() {
+                    if (this.id !== 'masterNotifications' && this.id !== 'quietHours') {
+                        // Küçük feedback
+                        const label = this.nextElementSibling;
+                        label.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            label.style.transform = 'scale(1)';
+                        }, 150);
+                    }
+                });
+            });
+        });
+
+        // CSS animasyonları için stil ekleme
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            
+            .toggle-label {
+                transition: transform 0.15s ease !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

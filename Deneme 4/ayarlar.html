@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayarlar - VERDE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile-buttons.css">
+    <link rel="stylesheet" href="phone-input.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-main">
+            <a href="index.html" class="site-logo">
+                <div class="logo-icon">V</div>
+                <h1 class="logo-text">VERDE</h1>
+            </a>
+            <button class="post-ad-button">
+                <i class="fas fa-plus-circle"></i>
+                <span>Hızlı İlan Ver</span>
+            </button>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="İlan, kategori veya konum ara...">
+                </div>
+            </div>
+
+            <!-- Kullanıcı Menüsü -->
+            <div class="user-menu">
+                <button class="user-menu-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Hesabım</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown">
+                    <a href="profil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profilim</span>
+                    </a>
+                    <a href="ilanlarim.html" class="dropdown-item">
+                        <i class="fas fa-list-alt"></i>
+                        <span>İlanlarım</span>
+                    </a>
+                    <a href="favorilerim.html" class="dropdown-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Favorilerim</span>
+                    </a>
+                    <a href="mesajlar.html" class="dropdown-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mesajlarım</span>
+                    </a>
+                    <a href="ayarlar.html" class="dropdown-item active">
+                        <i class="fas fa-cog"></i>
+                        <span>Ayarlar</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Çıkış Yap</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ayarlar Sayfası İçeriği -->
+    <main class="settings-page">
+        <div class="container">
+            <!-- Sayfa Başlığı -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1><i class="fas fa-cog"></i> Hesap Ayarları</h1>
+                </div>
+            </div>
+
+            <div class="settings-container">
+                <!-- Ayarlar Menüsü -->
+                <div class="settings-sidebar">
+                    <nav class="settings-nav">
+                        <a href="#account" class="nav-item active">
+                            <i class="fas fa-user"></i>
+                            <span>Hesap Bilgileri</span>
+                        </a>
+                        <a href="#security" class="nav-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Güvenlik</span>
+                        </a>
+                        <a href="#privacy" class="nav-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Gizlilik</span>
+                        </a>
+                        <a href="#notifications" class="nav-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Bildirimler</span>
+                        </a>
+                        <a href="#appearance" class="nav-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Görünüm</span>
+                        </a>
+                        <a href="#data" class="nav-item">
+                            <i class="fas fa-download"></i>
+                            <span>Veri Yönetimi</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Ayarlar İçeriği -->
+                <div class="settings-content">
+                    <!-- Hesap Bilgileri -->
+                    <div id="account" class="settings-section active">
+                        <div class="section-header">
+                            <h2>Hesap Bilgileri</h2>
+                        </div>
+
+                        <div class="settings-card">
+                            <div class="profile-picture-section">
+                                <div class="profile-picture">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format" alt="Profil Fotoğrafı" id="settingsProfileImage">
+                                </div>
+                                <div class="picture-actions">
+                                    <button class="btn-profile-action btn-primary-action" onclick="document.getElementById('profilePictureInput').click()">
+                                        <i class="fas fa-camera"></i>
+                                        <span>Fotoğraf Değiştir</span>
+                                    </button>
+                                    <button class="btn-profile-action btn-danger-action" onclick="removeProfilePicture()">
+                                        <i class="fas fa-trash"></i>
+                                        <span>Fotoğrafı Kaldır</span>
+                                    </button>
+                                    <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" onchange="handleProfilePictureChange(event)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Kişisel Bilgiler</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Ad</label>
+                                    <input type="text" value="Ahmet">
+                                </div>
+                                <div class="form-group">
+                                    <label>Soyad</label>
+                                    <input type="text" value="Yılmaz">
+                                </div>
+                                <div class="form-group">
+                                    <label>E-posta</label>
+                                    <input type="email" value="ahmet.yilmaz@email.com">
+                                    <span class="input-note unverified">
+                                        <i class="fas fa-exclamation-circle"></i> Lütfen doğrulama yapın
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefon</label>
+                                    <div class="phone-input-container">
+                                        <select class="area-code-select">
+                                            <option value="+93">🇦🇫 +93 Afghanistan</option>
+                                            <option value="+355">🇦🇱 +355 Albania</option>
+                                            <option value="+213">🇩🇿 +213 Algeria</option>
+                                            <option value="+1684">🇦🇸 +1684 American Samoa</option>
+                                            <option value="+376">🇦🇩 +376 Andorra</option>
+                                            <option value="+244">🇦🇴 +244 Angola</option>
+                                            <option value="+1264">🇦🇮 +1264 Anguilla</option>
+                                            <option value="+672">🇦🇶 +672 Antarctica</option>
+                                            <option value="+1268">🇦🇬 +1268 Antigua and Barbuda</option>
+                                            <option value="+54">🇦🇷 +54 Argentina</option>
+                                            <option value="+374">🇦🇲 +374 Armenia</option>
+                                            <option value="+297">🇦🇼 +297 Aruba</option>
+                                            <option value="+61">🇦🇺 +61 Australia</option>
+                                            <option value="+43">🇦🇹 +43 Austria</option>
+                                            <option value="+994">🇦🇿 +994 Azerbaijan</option>
+                                            <option value="+1242">🇧🇸 +1242 Bahamas</option>
+                                            <option value="+973">🇧🇭 +973 Bahrain</option>
+                                            <option value="+880">🇧🇩 +880 Bangladesh</option>
+                                            <option value="+1246">🇧🇧 +1246 Barbados</option>
+                                            <option value="+375">🇧🇾 +375 Belarus</option>
+                                            <option value="+32">🇧🇪 +32 Belgium</option>
+                                            <option value="+501">🇧🇿 +501 Belize</option>
+                                            <option value="+229">🇧🇯 +229 Benin</option>
+                                            <option value="+1441">🇧🇲 +1441 Bermuda</option>
+                                            <option value="+975">🇧🇹 +975 Bhutan</option>
+                                            <option value="+591">🇧🇴 +591 Bolivia</option>
+                                            <option value="+387">🇧🇦 +387 Bosnia and Herzegovina</option>
+                                            <option value="+267">🇧🇼 +267 Botswana</option>
+                                            <option value="+55">🇧🇷 +55 Brazil</option>
+                                            <option value="+673">🇧🇳 +673 Brunei</option>
+                                            <option value="+359">🇧🇬 +359 Bulgaria</option>
+                                            <option value="+226">🇧🇫 +226 Burkina Faso</option>
+                                            <option value="+257">🇧🇮 +257 Burundi</option>
+                                            <option value="+855">🇰🇭 +855 Cambodia</option>
+                                            <option value="+237">🇨🇲 +237 Cameroon</option>
+                                            <option value="+1">🇨🇦 +1 Canada</option>
+                                            <option value="+238">🇨🇻 +238 Cape Verde</option>
+                                            <option value="+1345">🇰🇾 +1345 Cayman Islands</option>
+                                            <option value="+236">🇨🇫 +236 Central African Republic</option>
+                                            <option value="+235">🇹🇩 +235 Chad</option>
+                                            <option value="+56">🇨🇱 +56 Chile</option>
+                                            <option value="+86">🇨🇳 +86 China</option>
+                                            <option value="+57">🇨🇴 +57 Colombia</option>
+                                            <option value="+269">🇰🇲 +269 Comoros</option>
+                                            <option value="+242">🇨🇬 +242 Congo</option>
+                                            <option value="+243">🇨🇩 +243 Congo (DRC)</option>
+                                            <option value="+682">🇨🇰 +682 Cook Islands</option>
+                                            <option value="+506">🇨🇷 +506 Costa Rica</option>
+                                            <option value="+225">🇨🇮 +225 Côte d'Ivoire</option>
+                                            <option value="+385">🇭🇷 +385 Croatia</option>
+                                            <option value="+53">🇨🇺 +53 Cuba</option>
+                                            <option value="+357">🇨🇾 +357 Cyprus</option>
+                                            <option value="+420">🇨🇿 +420 Czech Republic</option>
+                                            <option value="+45">🇩🇰 +45 Denmark</option>
+                                            <option value="+253">🇩🇯 +253 Djibouti</option>
+                                            <option value="+1767">🇩🇲 +1767 Dominica</option>
+                                            <option value="+1809">🇩🇴 +1809 Dominican Republic</option>
+                                            <option value="+593">🇪🇨 +593 Ecuador</option>
+                                            <option value="+20">🇪🇬 +20 Egypt</option>
+                                            <option value="+503">🇸🇻 +503 El Salvador</option>
+                                            <option value="+240">🇬🇶 +240 Equatorial Guinea</option>
+                                            <option value="+291">🇪🇷 +291 Eritrea</option>
+                                            <option value="+372">🇪🇪 +372 Estonia</option>
+                                            <option value="+251">🇪🇹 +251 Ethiopia</option>
+                                            <option value="+500">🇫🇰 +500 Falkland Islands</option>
+                                            <option value="+298">🇫🇴 +298 Faroe Islands</option>
+                                            <option value="+679">🇫🇯 +679 Fiji</option>
+                                            <option value="+358">🇫🇮 +358 Finland</option>
+                                            <option value="+33">🇫🇷 +33 France</option>
+                                            <option value="+241">🇬🇦 +241 Gabon</option>
+                                            <option value="+220">🇬🇲 +220 Gambia</option>
+                                            <option value="+995">🇬🇪 +995 Georgia</option>
+                                            <option value="+49">🇩🇪 +49 Germany</option>
+                                            <option value="+233">🇬🇭 +233 Ghana</option>
+                                            <option value="+350">🇬🇮 +350 Gibraltar</option>
+                                            <option value="+30">🇬🇷 +30 Greece</option>
+                                            <option value="+299">🇬🇱 +299 Greenland</option>
+                                            <option value="+1473">🇬🇩 +1473 Grenada</option>
+                                            <option value="+1671">🇬🇺 +1671 Guam</option>
+                                            <option value="+502">🇬🇹 +502 Guatemala</option>
+                                            <option value="+224">🇬🇳 +224 Guinea</option>
+                                            <option value="+245">🇬🇼 +245 Guinea-Bissau</option>
+                                            <option value="+592">🇬🇾 +592 Guyana</option>
+                                            <option value="+509">🇭🇹 +509 Haiti</option>
+                                            <option value="+504">🇭🇳 +504 Honduras</option>
+                                            <option value="+852">🇭🇰 +852 Hong Kong</option>
+                                            <option value="+36">🇭🇺 +36 Hungary</option>
+                                            <option value="+354">🇮🇸 +354 Iceland</option>
+                                            <option value="+91">🇮🇳 +91 India</option>
+                                            <option value="+62">🇮🇩 +62 Indonesia</option>
+                                            <option value="+98">🇮🇷 +98 Iran</option>
+                                            <option value="+964">🇮🇶 +964 Iraq</option>
+                                            <option value="+353">🇮🇪 +353 Ireland</option>
+                                            <option value="+972">🇮🇱 +972 Israel</option>
+                                            <option value="+39">🇮🇹 +39 Italy</option>
+                                            <option value="+1876">🇯🇲 +1876 Jamaica</option>
+                                            <option value="+81">🇯🇵 +81 Japan</option>
+                                            <option value="+962">🇯🇴 +962 Jordan</option>
+                                            <option value="+7">🇰🇿 +7 Kazakhstan</option>
+                                            <option value="+254">🇰🇪 +254 Kenya</option>
+                                            <option value="+686">🇰🇮 +686 Kiribati</option>
+                                            <option value="+383">🇽🇰 +383 Kosovo</option>
+                                            <option value="+965">🇰🇼 +965 Kuwait</option>
+                                            <option value="+996">🇰🇬 +996 Kyrgyzstan</option>
+                                            <option value="+856">🇱🇦 +856 Laos</option>
+                                            <option value="+371">🇱🇻 +371 Latvia</option>
+                                            <option value="+961">🇱🇧 +961 Lebanon</option>
+                                            <option value="+266">🇱🇸 +266 Lesotho</option>
+                                            <option value="+231">🇱🇷 +231 Liberia</option>
+                                            <option value="+218">🇱🇾 +218 Libya</option>
+                                            <option value="+423">🇱🇮 +423 Liechtenstein</option>
+                                            <option value="+370">🇱🇹 +370 Lithuania</option>
+                                            <option value="+352">🇱🇺 +352 Luxembourg</option>
+                                            <option value="+853">🇲🇴 +853 Macao</option>
+                                            <option value="+389">🇲🇰 +389 Macedonia</option>
+                                            <option value="+261">🇲🇬 +261 Madagascar</option>
+                                            <option value="+265">🇲🇼 +265 Malawi</option>
+                                            <option value="+60">🇲🇾 +60 Malaysia</option>
+                                            <option value="+960">🇲🇻 +960 Maldives</option>
+                                            <option value="+223">🇲🇱 +223 Mali</option>
+                                            <option value="+356" selected>🇲🇹 +356 Malta</option>
+                                            <option value="+692">🇲🇭 +692 Marshall Islands</option>
+                                            <option value="+222">🇲🇷 +222 Mauritania</option>
+                                            <option value="+230">🇲🇺 +230 Mauritius</option>
+                                            <option value="+52">🇲🇽 +52 Mexico</option>
+                                            <option value="+691">🇫🇲 +691 Micronesia</option>
+                                            <option value="+373">🇲🇩 +373 Moldova</option>
+                                            <option value="+377">🇲🇨 +377 Monaco</option>
+                                            <option value="+976">🇲🇳 +976 Mongolia</option>
+                                            <option value="+382">🇲🇪 +382 Montenegro</option>
+                                            <option value="+212">🇲🇦 +212 Morocco</option>
+                                            <option value="+258">🇲🇿 +258 Mozambique</option>
+                                            <option value="+95">🇲🇲 +95 Myanmar</option>
+                                            <option value="+264">🇳🇦 +264 Namibia</option>
+                                            <option value="+674">🇳🇷 +674 Nauru</option>
+                                            <option value="+977">🇳🇵 +977 Nepal</option>
+                                            <option value="+31">🇳🇱 +31 Netherlands</option>
+                                            <option value="+64">🇳🇿 +64 New Zealand</option>
+                                            <option value="+505">🇳🇮 +505 Nicaragua</option>
+                                            <option value="+227">🇳🇪 +227 Niger</option>
+                                            <option value="+234">🇳🇬 +234 Nigeria</option>
+                                            <option value="+850">🇰🇵 +850 North Korea</option>
+                                            <option value="+47">🇳🇴 +47 Norway</option>
+                                            <option value="+968">🇴🇲 +968 Oman</option>
+                                            <option value="+92">🇵🇰 +92 Pakistan</option>
+                                            <option value="+680">🇵🇼 +680 Palau</option>
+                                            <option value="+970">🇵🇸 +970 Palestine</option>
+                                            <option value="+507">🇵🇦 +507 Panama</option>
+                                            <option value="+675">🇵🇬 +675 Papua New Guinea</option>
+                                            <option value="+595">🇵🇾 +595 Paraguay</option>
+                                            <option value="+51">🇵🇪 +51 Peru</option>
+                                            <option value="+63">🇵🇭 +63 Philippines</option>
+                                            <option value="+48">🇵🇱 +48 Poland</option>
+                                            <option value="+351">🇵🇹 +351 Portugal</option>
+                                            <option value="+1787">🇵🇷 +1787 Puerto Rico</option>
+                                            <option value="+974">🇶🇦 +974 Qatar</option>
+                                            <option value="+40">🇷🇴 +40 Romania</option>
+                                            <option value="+7">🇷🇺 +7 Russia</option>
+                                            <option value="+250">🇷🇼 +250 Rwanda</option>
+                                            <option value="+1869">🇰🇳 +1869 Saint Kitts and Nevis</option>
+                                            <option value="+1758">🇱🇨 +1758 Saint Lucia</option>
+                                            <option value="+1784">🇻🇨 +1784 Saint Vincent and the Grenadines</option>
+                                            <option value="+685">🇼🇸 +685 Samoa</option>
+                                            <option value="+378">🇸🇲 +378 San Marino</option>
+                                            <option value="+239">🇸🇹 +239 São Tomé and Príncipe</option>
+                                            <option value="+966">🇸🇦 +966 Saudi Arabia</option>
+                                            <option value="+221">🇸🇳 +221 Senegal</option>
+                                            <option value="+381">🇷🇸 +381 Serbia</option>
+                                            <option value="+248">🇸🇨 +248 Seychelles</option>
+                                            <option value="+232">🇸🇱 +232 Sierra Leone</option>
+                                            <option value="+65">🇸🇬 +65 Singapore</option>
+                                            <option value="+421">🇸🇰 +421 Slovakia</option>
+                                            <option value="+386">🇸🇮 +386 Slovenia</option>
+                                            <option value="+677">🇸🇧 +677 Solomon Islands</option>
+                                            <option value="+252">🇸🇴 +252 Somalia</option>
+                                            <option value="+27">🇿🇦 +27 South Africa</option>
+                                            <option value="+82">🇰🇷 +82 South Korea</option>
+                                            <option value="+211">🇸🇸 +211 South Sudan</option>
+                                            <option value="+34">🇪🇸 +34 Spain</option>
+                                            <option value="+94">🇱🇰 +94 Sri Lanka</option>
+                                            <option value="+249">🇸🇩 +249 Sudan</option>
+                                            <option value="+597">🇸🇷 +597 Suriname</option>
+                                            <option value="+268">🇸🇿 +268 Swaziland</option>
+                                            <option value="+46">🇸🇪 +46 Sweden</option>
+                                            <option value="+41">🇨🇭 +41 Switzerland</option>
+                                            <option value="+963">🇸🇾 +963 Syria</option>
+                                            <option value="+886">🇹🇼 +886 Taiwan</option>
+                                            <option value="+992">🇹🇯 +992 Tajikistan</option>
+                                            <option value="+255">🇹🇿 +255 Tanzania</option>
+                                            <option value="+66">🇹🇭 +66 Thailand</option>
+                                            <option value="+670">🇹🇱 +670 Timor-Leste</option>
+                                            <option value="+228">🇹🇬 +228 Togo</option>
+                                            <option value="+676">🇹🇴 +676 Tonga</option>
+                                            <option value="+1868">🇹🇹 +1868 Trinidad and Tobago</option>
+                                            <option value="+216">🇹🇳 +216 Tunisia</option>
+                                            <option value="+90">🇹🇷 +90 Turkey</option>
+                                            <option value="+993">🇹🇲 +993 Turkmenistan</option>
+                                            <option value="+1649">🇹🇨 +1649 Turks and Caicos Islands</option>
+                                            <option value="+688">🇹🇻 +688 Tuvalu</option>
+                                            <option value="+256">🇺🇬 +256 Uganda</option>
+                                            <option value="+380">🇺🇦 +380 Ukraine</option>
+                                            <option value="+971">🇦🇪 +971 United Arab Emirates</option>
+                                            <option value="+44">🇬🇧 +44 United Kingdom</option>
+                                            <option value="+1">🇺🇸 +1 United States</option>
+                                            <option value="+598">🇺🇾 +598 Uruguay</option>
+                                            <option value="+998">🇺🇿 +998 Uzbekistan</option>
+                                            <option value="+678">🇻🇺 +678 Vanuatu</option>
+                                            <option value="+379">🇻🇦 +379 Vatican City</option>
+                                            <option value="+58">🇻🇪 +58 Venezuela</option>
+                                            <option value="+84">🇻🇳 +84 Vietnam</option>
+                                            <option value="+1340">🇻🇮 +1340 Virgin Islands (US)</option>
+                                            <option value="+967">🇾🇪 +967 Yemen</option>
+                                            <option value="+260">🇿🇲 +260 Zambia</option>
+                                            <option value="+263">🇿🇼 +263 Zimbabwe</option>
+                                        </select>
+                                        <input type="tel" class="phone-number-input" value="9912 3456" placeholder="9912 3456">
+                                    </div>
+                                    <span class="input-note unverified">
+                                        <i class="fas fa-exclamation-circle"></i> Lütfen doğrulama yapın
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Doğum Tarihi</label>
+                                    <input type="date" value="1990-05-15">
+                                </div>
+                                <div class="form-group">
+                                    <label>Cinsiyet</label>
+                                    <select>
+                                        <option>Erkek</option>
+                                        <option>Kadın</option>
+                                        <option>Belirtmek İstemiyorum</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    Değişiklikleri Kaydet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Güvenlik -->
+                    <div id="security" class="settings-section">
+                        <div class="section-header">
+                            <h2>Güvenlik Ayarları</h2>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Şifre Değiştir</h3>
+                            <div class="form-group">
+                                <label>Mevcut Şifre</label>
+                                <div class="password-input">
+                                    <input type="password" placeholder="Mevcut şifrenizi girin">
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Yeni Şifre</label>
+                                <div class="password-input">
+                                    <input type="password" placeholder="Yeni şifrenizi girin">
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-bar">
+                                        <div class="strength-fill weak"></div>
+                                    </div>
+                                    <span class="strength-text">Zayıf</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Yeni Şifre (Tekrar)</label>
+                                <div class="password-input">
+                                    <input type="password" placeholder="Yeni şifrenizi tekrar girin">
+                                    <button type="button" class="toggle-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="btn-primary">
+                                <i class="fas fa-key"></i>
+                                Şifreyi Güncelle
+                            </button>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>İki Faktörlü Kimlik Doğrulama</h3>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>SMS ile Doğrulama</h4>
+                                    <p>Giriş yaparken telefonunuza kod gönderilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>E-posta ile Doğrulama</h4>
+                                    <p>Giriş yaparken e-postanıza kod gönderilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Aktif Oturumlar</h3>
+                            <div class="session-item current">
+                                <div class="session-info">
+                                    <div class="session-device">
+                                        <i class="fas fa-desktop"></i>
+                                        <span>Windows 11 - Chrome</span>
+                                        <span class="current-badge">Mevcut</span>
+                                    </div>
+                                    <div class="session-details">
+                                        <span>İstanbul, Türkiye</span>
+                                        <span>Son etkinlik: Şimdi</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="session-item">
+                                <div class="session-info">
+                                    <div class="session-device">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>iPhone - Safari</span>
+                                    </div>
+                                    <div class="session-details">
+                                        <span>İstanbul, Türkiye</span>
+                                        <span>Son etkinlik: 2 saat önce</span>
+                                    </div>
+                                </div>
+                                <button class="btn-danger-outline">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Çıkış Yap
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gizlilik -->
+                    <div id="privacy" class="settings-section">
+                        <div class="section-header">
+                            <h2>Gizlilik Ayarları</h2>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Profil Görünürlüğü</h3>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>Profilimi Herkese Göster</h4>
+                                    <p>Kullanıcılar profilinizi görüntüleyebilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>İletişim Bilgilerimi Göster</h4>
+                                    <p>Telefon numaranız ilan detayında görünür</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>Çevrimiçi Durumumu Göster</h4>
+                                    <p>Diğer kullanıcılar ne zaman aktif olduğunuzu görebilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Mesaj Ayarları</h3>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="messages-all" name="message-privacy" checked>
+                                    <label for="messages-all">Herkes mesaj gönderebilir</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="messages-verified" name="message-privacy">
+                                    <label for="messages-verified">Sadece doğrulanmış kullanıcılar</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bildirimler -->
+                    <div id="notifications" class="settings-section">
+                        <div class="section-header">
+                            <h2>Bildirim Ayarları</h2>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>E-posta Bildirimleri</h3>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>Yeni Mesajlar</h4>
+                                    <p>Yeni mesaj aldığınızda e-posta gönderilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>Fiyat Değişiklikleri</h4>
+                                    <p>Favori ilanlarınızın fiyatı değiştiğinde bildirim alın</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>İlan Güncellemeleri</h4>
+                                    <p>İlanlarınızla ilgili önemli güncellemeler</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Pazarlama Bildirimleri</h3>
+                            <div class="toggle-setting">
+                                <div class="setting-info">
+                                    <h4>Kampanyalar ve İndirimler</h4>
+                                    <p>Özel teklifler ve kampanyalardan haberdar olun</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Görünüm -->
+                    <div id="appearance" class="settings-section">
+                        <div class="section-header">
+                            <h2>Görünüm Ayarları</h2>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Tema</h3>
+                            <div class="theme-options">
+                                <div class="theme-option active" data-theme="light">
+                                    <div class="theme-preview light">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <span>Açık Tema</span>
+                                </div>
+                                <div class="theme-option" data-theme="dark">
+                                    <div class="theme-preview dark">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <span>Koyu Tema</span>
+                                </div>
+                                <div class="theme-option" data-theme="auto">
+                                    <div class="theme-preview auto">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <span>Sistem</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Dil ve Bölge</h3>
+                            <div class="form-group">
+                                <label>Dil</label>
+                                <select>
+                                    <option>Türkçe</option>
+                                    <option>English</option>
+                                    <option selected>Malti (Maltese)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Para Birimi</label>
+                                <select disabled style="background-color: #f0f0f0; cursor: not-allowed;">
+                                    <option selected>EUR (Euro)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium -->
+                    <div id="subscription" class="settings-section">
+                        <div class="section-header">
+                            <h2>Premium Üyelik</h2>
+                            <p>Daha fazla özellik için premium'a geçin</p>
+                        </div>
+
+                        <div class="premium-card">
+                            <div class="premium-header">
+                                <i class="fas fa-crown"></i>
+                                <h3>Premium Üyelik</h3>
+                                <span class="premium-badge">Aktif</span>
+                            </div>
+                            <div class="premium-benefits">
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Sınırsız ilan verme</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>İlanları öne çıkarma</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Öncelikli müşteri desteği</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Detaylı istatistikler</span>
+                                </div>
+                            </div>
+                            <div class="premium-info">
+                                <p><strong>Sonraki ödeme:</strong> 15 Kasım 2025</p>
+                                <p><strong>Plan:</strong> Aylık Premium - 29.99 TL</p>
+                            </div>
+                            <div class="premium-actions">
+                                <button class="btn-primary">
+                                    <i class="fas fa-credit-card"></i>
+                                    Planı Yönet
+                                </button>
+                                <button class="btn-danger-outline">
+                                    <i class="fas fa-times"></i>
+                                    Üyeliği İptal Et
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Veri Yönetimi -->
+                    <div id="data" class="settings-section">
+                        <div class="section-header">
+                            <h2>Veri Yönetimi</h2>
+                            <p>Verilerinizi yönetin ve hesabınızı kontrol edin</p>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Veri İndirme</h3>
+                            <p>Hesabınızdaki tüm verilerin bir kopyasını indirin</p>
+                            <button class="btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Verilerimi İndir
+                            </button>
+                        </div>
+
+                        <div class="settings-card danger-zone">
+                            <h3>Tehlikeli Alan</h3>
+                            <div class="danger-actions">
+                                <div class="danger-action">
+                                    <div class="action-info">
+                                        <h4>Hesabı Devre Dışı Bırak</h4>
+                                        <p>Hesabınızı geçici olarak devre dışı bırakır</p>
+                                    </div>
+                                    <button class="btn-warning">
+                                        <i class="fas fa-pause"></i>
+                                        Hesabı Duraklat
+                                    </button>
+                                </div>
+                                <div class="danger-action">
+                                    <div class="action-info">
+                                        <h4>Hesabı Kalıcı Sil</h4>
+                                        <p>Tüm verileriniz kalıcı olarak silinir</p>
+                                    </div>
+                                    <button class="btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                        Hesabı Sil
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Profil fotoğrafı değiştirme
+        function handleProfilePictureChange(event) {
+            const file = event.target.files[0];
+            const button = document.querySelector('.btn-primary-action');
+            const img = document.getElementById('settingsProfileImage');
+            
+            if (file) {
+                // Loading state
+                button.classList.add('loading');
+                button.innerHTML = '<i class="fas fa-spinner"></i><span>Yükleniyor...</span>';
+                
+                // Simulate upload process
+                setTimeout(() => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        img.src = e.target.result;
+                        
+                        // Success state
+                        button.classList.remove('loading');
+                        button.classList.add('success');
+                        button.innerHTML = '<i class="fas fa-check"></i><span>Başarılı!</span>';
+                        
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            button.classList.remove('success');
+                            button.innerHTML = '<i class="fas fa-camera"></i><span>Fotoğraf Değiştir</span>';
+                        }, 2000);
+                    };
+                    reader.readAsDataURL(file);
+                }, 1500);
+            }
+        }
+        
+        // Profil fotoğrafını kaldırma
+        function removeProfilePicture() {
+            const button = document.querySelector('.btn-danger-action');
+            const img = document.getElementById('settingsProfileImage');
+            
+            // Loading state
+            button.classList.add('loading');
+            button.innerHTML = '<i class="fas fa-spinner"></i><span>Kaldırılıyor...</span>';
+            
+            // Simulate removal process
+            setTimeout(() => {
+                // Set default avatar
+                img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="75" fill="%2310b981"/><text x="75" y="85" text-anchor="middle" fill="white" font-family="Arial" font-size="48" font-weight="bold">U</text></svg>';
+                
+                // Success state
+                button.classList.remove('loading');
+                button.classList.add('success');
+                button.innerHTML = '<i class="fas fa-check"></i><span>Kaldırıldı!</span>';
+                
+                // Show success notification
+                showSaveNotification('Profil fotoğrafı başarıyla kaldırıldı!', 'success');
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    button.classList.remove('success');
+                    button.innerHTML = '<i class="fas fa-trash"></i><span>Fotoğrafı Kaldır</span>';
+                }, 2000);
+            }, 1000);
+        }
+        
+        // Settings navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.settings-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Add active class to clicked nav item
+            const clickedNavItem = event.target.closest('.nav-item');
+            if (clickedNavItem) {
+                clickedNavItem.classList.add('active');
+            }
+        }
+        
+        // Save notification
+        function showSaveNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `save-notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Style
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success)' : 'var(--danger)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 500;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease-in';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Add notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Example save function
+        function saveAccountSettings() {
+            showSaveNotification('Hesap bilgileri başarıyla güncellendi!', 'success');
+        }
+
+        // Phone number formatting
+        function formatPhoneNumber(input) {
+            let value = input.value.replace(/\D/g, ''); // Remove non-digits
+            
+            // Malta phone number formatting (8 digits: XXXX XXXX)
+            if (value.length <= 8) {
+                value = value.replace(/(\d{4})(\d{1,4})/, '$1 $2');
+            }
+            
+            input.value = value;
+        }
+
+        // Initialize phone input functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.querySelector('.phone-number-input');
+            const areaCodeSelect = document.querySelector('.area-code-select');
+            
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function() {
+                    formatPhoneNumber(this);
+                });
+                
+                // Prevent non-numeric input (except spaces)
+                phoneInput.addEventListener('keypress', function(e) {
+                    const char = String.fromCharCode(e.which);
+                    if (!/[\d\s]/.test(char) && e.which !== 8) {
+                        e.preventDefault();
+                    }
+                });
+            }
+            
+            if (areaCodeSelect) {
+                areaCodeSelect.addEventListener('change', function() {
+                    // Update placeholder based on selected country
+                    const selectedOption = this.options[this.selectedIndex];
+                    const countryCode = this.value;
+                    
+                    // Set appropriate placeholder for different countries
+                    const placeholders = {
+                        '+1': '555 123 4567',    // US/Canada
+                        '+7': '495 123 4567',    // Russia/Kazakhstan
+                        '+20': '10 1234 5678',   // Egypt
+                        '+27': '82 123 4567',    // South Africa
+                        '+30': '694 123 4567',   // Greece
+                        '+31': '6 12345678',     // Netherlands
+                        '+32': '470 12 34 56',   // Belgium
+                        '+33': '6 12 34 56 78',  // France
+                        '+34': '612 34 56 78',   // Spain
+                        '+36': '70 123 4567',    // Hungary
+                        '+39': '320 123 4567',   // Italy
+                        '+40': '712 345 678',    // Romania
+                        '+41': '79 123 45 67',   // Switzerland
+                        '+43': '664 123 4567',   // Austria
+                        '+44': '7911 123456',    // UK
+                        '+45': '12 34 56 78',    // Denmark
+                        '+46': '70 123 45 67',   // Sweden
+                        '+47': '412 34 567',     // Norway
+                        '+48': '512 345 678',    // Poland
+                        '+49': '1512 3456789',   // Germany
+                        '+51': '987 654 321',    // Peru
+                        '+52': '55 1234 5678',   // Mexico
+                        '+53': '5123 4567',      // Cuba
+                        '+54': '11 1234 5678',   // Argentina
+                        '+55': '11 91234 5678',  // Brazil
+                        '+56': '9 8765 4321',    // Chile
+                        '+57': '321 123 4567',   // Colombia
+                        '+58': '412 123 4567',   // Venezuela
+                        '+60': '12 345 6789',    // Malaysia
+                        '+61': '412 345 678',    // Australia
+                        '+62': '812 345 6789',   // Indonesia
+                        '+63': '917 123 4567',   // Philippines
+                        '+64': '21 123 4567',    // New Zealand
+                        '+65': '8123 4567',      // Singapore
+                        '+66': '81 234 5678',    // Thailand
+                        '+81': '90 1234 5678',   // Japan
+                        '+82': '10 1234 5678',   // South Korea
+                        '+84': '912 345 678',    // Vietnam
+                        '+86': '138 0013 8000',  // China
+                        '+90': '555 123 4567',   // Turkey
+                        '+91': '98765 43210',    // India
+                        '+92': '300 123 4567',   // Pakistan
+                        '+93': '70 123 4567',    // Afghanistan
+                        '+94': '71 234 5678',    // Sri Lanka
+                        '+95': '9 123 456 789',  // Myanmar
+                        '+98': '912 345 6789',   // Iran
+                        '+212': '612 345678',    // Morocco
+                        '+213': '551 23 45 67',  // Algeria
+                        '+216': '20 123 456',    // Tunisia
+                        '+218': '91 234 5678',   // Libya
+                        '+220': '123 4567',      // Gambia
+                        '+221': '77 123 45 67',  // Senegal
+                        '+222': '22 12 34 56',   // Mauritania
+                        '+223': '65 12 34 56',   // Mali
+                        '+224': '601 12 34 56',  // Guinea
+                        '+225': '01 23 45 67 89', // Côte d'Ivoire
+                        '+226': '70 12 34 56',   // Burkina Faso
+                        '+227': '96 12 34 56',   // Niger
+                        '+228': '90 11 22 33',   // Togo
+                        '+229': '97 12 34 56',   // Benin
+                        '+230': '5251 2345',     // Mauritius
+                        '+231': '770 123 456',   // Liberia
+                        '+232': '25 123456',     // Sierra Leone
+                        '+233': '23 123 4567',   // Ghana
+                        '+234': '802 123 4567',  // Nigeria
+                        '+235': '66 12 34 56',   // Chad
+                        '+236': '70 12 34 56',   // Central African Republic
+                        '+237': '6 71 23 45 67', // Cameroon
+                        '+238': '991 12 34',     // Cape Verde
+                        '+239': '981 2345',      // São Tomé and Príncipe
+                        '+240': '222 123 456',   // Equatorial Guinea
+                        '+241': '06 03 12 34',   // Gabon
+                        '+242': '06 612 3456',   // Congo
+                        '+243': '997 123 456',   // Congo (DRC)
+                        '+244': '923 123 456',   // Angola
+                        '+245': '955 12 34 56',  // Guinea-Bissau
+                        '+246': '438 1234',      // British Indian Ocean Territory
+                        '+248': '2 510 123',     // Seychelles
+                        '+249': '91 123 1234',   // Sudan
+                        '+250': '788 123 456',   // Rwanda
+                        '+251': '91 123 4567',   // Ethiopia
+                        '+252': '61 2345678',    // Somalia
+                        '+253': '77 12 34 56',   // Djibouti
+                        '+254': '712 123456',    // Kenya
+                        '+255': '621 123 456',   // Tanzania
+                        '+256': '712 345678',    // Uganda
+                        '+257': '79 56 12 34',   // Burundi
+                        '+258': '82 123 4567',   // Mozambique
+                        '+260': '97 123 4567',   // Zambia
+                        '+261': '32 12 345 67',  // Madagascar
+                        '+262': '692 12 34 56',  // Réunion
+                        '+263': '71 123 4567',   // Zimbabwe
+                        '+264': '81 123 4567',   // Namibia
+                        '+265': '991 23 45 67',  // Malawi
+                        '+266': '6012 3456',     // Lesotho
+                        '+267': '71 123 456',    // Botswana
+                        '+268': '7612 3456',     // Swaziland
+                        '+269': '321 12 34',     // Comoros
+                        '+290': '51234',         // Saint Helena
+                        '+291': '7 123 456',     // Eritrea
+                        '+297': '560 1234',      // Aruba
+                        '+298': '211234',        // Faroe Islands
+                        '+299': '22 12 34',      // Greenland
+                        '+350': '5412 3456',     // Gibraltar
+                        '+351': '912 345 678',   // Portugal
+                        '+352': '628 123 456',   // Luxembourg
+                        '+353': '85 123 4567',   // Ireland
+                        '+354': '611 1234',      // Iceland
+                        '+355': '67 212 3456',   // Albania
+                        '+356': '9912 3456',     // Malta
+                        '+357': '96 123456',     // Cyprus
+                        '+358': '50 123 4567',   // Finland
+                        '+359': '87 123 4567',   // Bulgaria
+                        '+370': '612 12345',     // Lithuania
+                        '+371': '21 234 567',    // Latvia
+                        '+372': '512 3456',      // Estonia
+                        '+373': '621 12 345',    // Moldova
+                        '+374': '77 123456',     // Armenia
+                        '+375': '29 123 45 67',  // Belarus
+                        '+376': '312 345',       // Andorra
+                        '+377': '6 12 34 56 78', // Monaco
+                        '+378': '66 12 34 567',  // San Marino
+                        '+380': '50 123 4567',   // Ukraine
+                        '+381': '64 123 4567',   // Serbia
+                        '+382': '67 123 456',    // Montenegro
+                        '+383': '43 123 456',    // Kosovo
+                        '+385': '91 234 5678',   // Croatia
+                        '+386': '31 123 456',    // Slovenia
+                        '+387': '61 123 456',    // Bosnia and Herzegovina
+                        '+389': '70 123 456',    // Macedonia
+                        '+420': '601 123 456',   // Czech Republic
+                        '+421': '905 123 456',   // Slovakia
+                        '+423': '661 12 34',     // Liechtenstein
+                        '+500': '51234',         // Falkland Islands
+                        '+501': '622 1234',      // Belize
+                        '+502': '5123 4567',     // Guatemala
+                        '+503': '7012 3456',     // El Salvador
+                        '+504': '9123 4567',     // Honduras
+                        '+505': '8123 4567',     // Nicaragua
+                        '+506': '8312 3456',     // Costa Rica
+                        '+507': '6123 4567',     // Panama
+                        '+508': '55 12 34',      // Saint Pierre and Miquelon
+                        '+509': '34 12 3456',    // Haiti
+                        '+590': '690 12 34 56',  // Guadeloupe
+                        '+591': '612 12345',     // Bolivia
+                        '+592': '609 1234',      // Guyana
+                        '+593': '99 123 4567',   // Ecuador
+                        '+594': '694 12 34 56',  // French Guiana
+                        '+595': '961 123456',    // Paraguay
+                        '+596': '696 12 34 56',  // Martinique
+                        '+597': '123 4567',      // Suriname
+                        '+598': '94 123 456',    // Uruguay
+                        '+599': '9 512 3456',    // Netherlands Antilles
+                        '+670': '7721 2345',     // Timor-Leste
+                        '+672': '412 345 678',   // Norfolk Island
+                        '+673': '712 3456',      // Brunei
+                        '+674': '555 1234',      // Nauru
+                        '+675': '7012 3456',     // Papua New Guinea
+                        '+676': '771 5123',      // Tonga
+                        '+677': '123 4567',      // Solomon Islands
+                        '+678': '591 2345',      // Vanuatu
+                        '+679': '701 2345',      // Fiji
+                        '+680': '620 1234',      // Palau
+                        '+681': '72 12 34',      // Wallis and Futuna
+                        '+682': '71 234',        // Cook Islands
+                        '+683': '4567',          // Niue
+                        '+684': '733 1234',      // American Samoa
+                        '+685': '72 12345',      // Samoa
+                        '+686': '71234',         // Kiribati
+                        '+687': '75 12 34',      // New Caledonia
+                        '+688': '901 23',        // Tuvalu
+                        '+689': '87 12 34 56',   // French Polynesia
+                        '+690': '1234',          // Tokelau
+                        '+691': '320 1234',      // Micronesia
+                        '+692': '456 1234',      // Marshall Islands
+                        '+850': '191 234 567',   // North Korea
+                        '+852': '5123 4567',     // Hong Kong
+                        '+853': '6123 4567',     // Macao
+                        '+855': '12 345 678',    // Cambodia
+                        '+856': '20 2312 3456',  // Laos
+                        '+880': '1812 345678',   // Bangladesh
+                        '+886': '912 345 678',   // Taiwan
+                        '+960': '771 2345',      // Maldives
+                        '+961': '3 123 456',     // Lebanon
+                        '+962': '7 9012 3456',   // Jordan
+                        '+963': '944 567 890',   // Syria
+                        '+964': '7901 234567',   // Iraq
+                        '+965': '500 12345',     // Kuwait
+                        '+966': '50 123 4567',   // Saudi Arabia
+                        '+967': '1 234 567',     // Yemen
+                        '+968': '9212 3456',     // Oman
+                        '+970': '599 123 456',   // Palestine
+                        '+971': '50 123 4567',   // United Arab Emirates
+                        '+972': '50 123 4567',   // Israel
+                        '+973': '3612 3456',     // Bahrain
+                        '+974': '3312 3456',     // Qatar
+                        '+975': '17 12 34 56',   // Bhutan
+                        '+976': '8812 3456',     // Mongolia
+                        '+977': '98 1234 5678',  // Nepal
+                        '+992': '37 123 4567',   // Tajikistan
+                        '+993': '65 123456',     // Turkmenistan
+                        '+994': '40 123 45 67',  // Azerbaijan
+                        '+995': '555 12 34 56',  // Georgia
+                        '+996': '555 123 456',   // Kyrgyzstan
+                        '+998': '90 123 45 67'   // Uzbekistan
+                    };
+                    
+                    phoneInput.placeholder = placeholders[countryCode] || 'Phone number';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
