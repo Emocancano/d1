@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri Yönetimi - Verde</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="search-container">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">V</div>
+                    <div class="logo-text">Verde</div>
+                </a>
+            </div>
+            <div class="auth-buttons" style="display: none;">
+                <button class="login-btn" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i>Giriş Yap</button>
+                <button class="signup-btn" onclick="window.location.href='login.html'"><i class="fas fa-user-plus"></i>Kayıt Ol</button>
+            </div>
+            <div class="user-menu" style="display: none;">
+                <button class="user-button">
+                    <img src="https://placehold.co/32x32" alt="Profil" class="avatar">
+                    <span>Hesabım</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="https://placehold.co/40x40" alt="Profil" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Kullanıcı Adı</span>
+                            <span class="user-email">kullanici@example.com</span>
+                        </div>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <a href="profil.html" class="dropdown-item"><i class="fas fa-user"></i><span>Profilim</span></a>
+                    <a href="ilanlarim.html" class="dropdown-item"><i class="fas fa-list"></i><span>İlanlarım</span></a>
+                    <a href="favorilerim.html" class="dropdown-item"><i class="fas fa-heart"></i><span>Favorilerim</span></a>
+                    <a href="mesajlar.html" class="dropdown-item"><i class="fas fa-envelope"></i><span>Mesajlarım</span><span class="notification-count">2</span></a>
+                    <a href="ayarlar.html" class="dropdown-item"><i class="fas fa-cog"></i><span>Ayarlar</span></a>
+                    <hr class="dropdown-divider">
+                    <a href="#logout" class="dropdown-item logout"><i class="fas fa-sign-out-alt"></i><span>Çıkış Yap</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="settings-page">
+        <div class="container">
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Veri Yönetimi</span>
+                </div>
+                <h1><i class="fas fa-download"></i> Veri Yönetimi</h1>
+                <p class="header-subtitle">Verilerinizi indirin, yedekleyin veya silin</p>
+            </div>
+
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <nav class="settings-nav">
+                        <a href="hesap-bilgileri.html" class="nav-item"><i class="fas fa-user"></i><span>Hesap Bilgileri</span></a>
+                        <a href="guvenlik.html" class="nav-item"><i class="fas fa-shield-alt"></i><span>Güvenlik</span></a>
+                        <a href="gizlilik.html" class="nav-item"><i class="fas fa-lock"></i><span>Gizlilik</span></a>
+                        <a href="bildirimler.html" class="nav-item"><i class="fas fa-bell"></i><span>Bildirimler</span></a>
+                        <a href="gorunum.html" class="nav-item"><i class="fas fa-palette"></i><span>Görünüm</span></a>
+                        <a href="premium.html" class="nav-item"><i class="fas fa-crown"></i><span>Premium</span></a>
+                        <a href="veri-yonetimi.html" class="nav-item active"><i class="fas fa-download"></i><span>Veri Yönetimi</span></a>
+                    </nav>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-section active">
+                        <!-- Veri İndirme -->
+                        <div class="settings-card">
+                            <h3><i class="fas fa-download"></i> Verilerimi İndir</h3>
+                            <p>Hesabınızla ilgili tüm verilerin bir kopyasını indirin. Bu işlem biraz zaman alabilir.</p>
+                            
+                            <div class="download-options">
+                                <div class="download-section">
+                                    <h4>İndirilecek Veri Türleri</h4>
+                                    <div class="data-types">
+                                        <label class="data-type-option">
+                                            <input type="checkbox" checked>
+                                            <div class="option-info">
+                                                <i class="fas fa-user"></i>
+                                                <div>
+                                                    <h5>Hesap Bilgileri</h5>
+                                                    <p>Profil bilgileri, iletişim bilgileri</p>
+                                                    <span class="data-size">~2 KB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <label class="data-type-option">
+                                            <input type="checkbox" checked>
+                                            <div class="option-info">
+                                                <i class="fas fa-list"></i>
+                                                <div>
+                                                    <h5>İlanlarım</h5>
+                                                    <p>Verdiğiniz tüm ilanlar ve detayları</p>
+                                                    <span class="data-size">~45 KB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <label class="data-type-option">
+                                            <input type="checkbox" checked>
+                                            <div class="option-info">
+                                                <i class="fas fa-heart"></i>
+                                                <div>
+                                                    <h5>Favorilerim</h5>
+                                                    <p>Favori olarak işaretlediğiniz ilanlar</p>
+                                                    <span class="data-size">~12 KB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <label class="data-type-option">
+                                            <input type="checkbox" checked>
+                                            <div class="option-info">
+                                                <i class="fas fa-envelope"></i>
+                                                <div>
+                                                    <h5>Mesajlarım</h5>
+                                                    <p>Gönderilen ve alınan tüm mesajlar</p>
+                                                    <span class="data-size">~78 KB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <label class="data-type-option">
+                                            <input type="checkbox">
+                                            <div class="option-info">
+                                                <i class="fas fa-images"></i>
+                                                <div>
+                                                    <h5>Fotoğraflar</h5>
+                                                    <p>İlanlarınıza yüklediğiniz tüm fotoğraflar</p>
+                                                    <span class="data-size">~156 MB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+
+                                        <label class="data-type-option">
+                                            <input type="checkbox">
+                                            <div class="option-info">
+                                                <i class="fas fa-chart-line"></i>
+                                                <div>
+                                                    <h5>Aktivite Geçmişi</h5>
+                                                    <p>Site kullanım geçmişi ve istatistikler</p>
+                                                    <span class="data-size">~8 KB</span>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="download-format">
+                                        <h4>Dosya Formatı</h4>
+                                        <div class="format-options">
+                                            <label class="format-option">
+                                                <input type="radio" name="format" value="json" checked>
+                                                <span>JSON</span>
+                                                <small>Teknik kullanım için</small>
+                                            </label>
+                                            <label class="format-option">
+                                                <input type="radio" name="format" value="csv">
+                                                <span>CSV</span>
+                                                <small>Excel ile açılabilir</small>
+                                            </label>
+                                            <label class="format-option">
+                                                <input type="radio" name="format" value="pdf">
+                                                <span>PDF</span>
+                                                <small>Yazdırılabilir rapor</small>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="total-size">
+                                        <strong>Tahmini Toplam Boyut: <span id="totalSize">137 KB</span></strong>
+                                    </div>
+
+                                    <button class="btn-primary" onclick="requestDataExport()">
+                                        <i class="fas fa-download"></i>
+                                        Veri İndirme Talep Et
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- İndirme Geçmişi -->
+                        <div class="settings-card">
+                            <h3><i class="fas fa-history"></i> İndirme Geçmişi</h3>
+                            <p>Daha önceki veri indirme taleplerini görüntüleyin.</p>
+                            
+                            <div class="download-history">
+                                <div class="history-item">
+                                    <div class="history-icon">
+                                        <i class="fas fa-check-circle text-green"></i>
+                                    </div>
+                                    <div class="history-info">
+                                        <h4>Tam Veri Paketi</h4>
+                                        <p>15 Ocak 2024 - JSON formatında</p>
+                                        <span class="file-size">142 KB</span>
+                                    </div>
+                                    <div class="history-actions">
+                                        <span class="status-badge completed">Tamamlandı</span>
+                                        <button class="btn-secondary-sm" onclick="downloadFile('export_20240115.zip')">
+                                            <i class="fas fa-download"></i>
+                                            İndir
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="history-item">
+                                    <div class="history-icon">
+                                        <i class="fas fa-spinner fa-spin text-blue"></i>
+                                    </div>
+                                    <div class="history-info">
+                                        <h4>Mesajlar ve Favoriler</h4>
+                                        <p>20 Ocak 2024 - CSV formatında</p>
+                                        <span class="file-size">Hazırlanıyor...</span>
+                                    </div>
+                                    <div class="history-actions">
+                                        <span class="status-badge processing">İşleniyor</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Otomatik Yedekleme -->
+                        <div class="settings-card">
+                            <h3><i class="fas fa-cloud-upload-alt"></i> Otomatik Yedekleme</h3>
+                            <p>Verilerinizin düzenli olarak yedeklenmesini sağlayın.</p>
+                            
+                            <div class="backup-settings">
+                                <div class="backup-setting">
+                                    <div class="setting-info">
+                                        <h4>Otomatik Yedekleme</h4>
+                                        <p>Verilerinizi otomatik olarak belirli aralıklarla yedekleyin</p>
+                                    </div>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="autoBackup" class="toggle-input">
+                                        <label for="autoBackup" class="toggle-label"></label>
+                                    </div>
+                                </div>
+
+                                <div class="backup-config" id="backupConfig" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="backupFrequency">Yedekleme Sıklığı</label>
+                                        <select id="backupFrequency">
+                                            <option value="weekly">Haftalık</option>
+                                            <option value="monthly">Aylık</option>
+                                            <option value="quarterly">Üç Aylık</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="backupEmail">E-posta Bildirimi</label>
+                                        <input type="email" id="backupEmail" placeholder="yedekleme@example.com">
+                                        <small>Yedekleme tamamlandığında bildirim alın</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Veri Silme -->
+                        <div class="settings-card danger-zone">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Tehlikeli Bölge</h3>
+                            <p>Bu işlemler geri alınamaz. Lütfen dikkatli olun.</p>
+                            
+                            <div class="danger-actions">
+                                <div class="danger-action">
+                                    <div class="action-info">
+                                        <h4>Hesabı Geçici Olarak Devre Dışı Bırak</h4>
+                                        <p>Hesabınızı geçici olarak devre dışı bırakın. Daha sonra geri etkinleştirebilirsiniz.</p>
+                                    </div>
+                                    <button class="btn-warning" onclick="deactivateAccount()">
+                                        <i class="fas fa-pause"></i>
+                                        Hesabı Devre Dışı Bırak
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="action-info">
+                                        <h4>Tüm İlanları Sil</h4>
+                                        <p>Verdiğiniz tüm ilanları kalıcı olarak silin. Bu işlem geri alınamaz.</p>
+                                    </div>
+                                    <button class="btn-danger" onclick="deleteAllAds()">
+                                        <i class="fas fa-trash"></i>
+                                        Tüm İlanları Sil
+                                    </button>
+                                </div>
+
+                                <div class="danger-action">
+                                    <div class="action-info">
+                                        <h4>Hesabı Kalıcı Olarak Sil</h4>
+                                        <p>Hesabınızı ve tüm verilerinizi kalıcı olarak silin. Bu işlem geri alınamaz.</p>
+                                    </div>
+                                    <button class="btn-danger" onclick="deleteAccount()">
+                                        <i class="fas fa-user-times"></i>
+                                        Hesabı Kalıcı Olarak Sil
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Auto backup toggle
+        document.getElementById('autoBackup').addEventListener('change', function() {
+            const config = document.getElementById('backupConfig');
+            config.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Calculate total size
+        function updateTotalSize() {
+            const checkboxes = document.querySelectorAll('.data-type-option input[type="checkbox"]');
+            const sizes = ['2', '45', '12', '78', '156000', '8']; // KB values
+            let total = 0;
+
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    total += parseInt(sizes[index]);
+                }
+            });
+
+            const sizeSpan = document.getElementById('totalSize');
+            if (total < 1024) {
+                sizeSpan.textContent = total + ' KB';
+            } else {
+                sizeSpan.textContent = (total / 1024).toFixed(1) + ' MB';
+            }
+        }
+
+        // Add event listeners to checkboxes
+        document.querySelectorAll('.data-type-option input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', updateTotalSize);
+        });
+
+        function requestDataExport() {
+            const checkedItems = document.querySelectorAll('.data-type-option input[type="checkbox"]:checked').length;
+            if (checkedItems === 0) {
+                showNotification('Lütfen en az bir veri türü seçin.', 'warning');
+                return;
+            }
+
+            const format = document.querySelector('input[name="format"]:checked').value;
+            showNotification(`Veri paketi hazırlanıyor... ${format.toUpperCase()} formatında e-posta ile gönderilecek.`, 'info');
+            
+            setTimeout(() => {
+                showNotification('Veri paketi başarıyla hazırlandı ve e-posta adresinize gönderildi!', 'success');
+            }, 3000);
+        }
+
+        function downloadFile(filename) {
+            showNotification(`${filename} dosyası indiriliyor...`, 'info');
+        }
+
+        function deactivateAccount() {
+            if (confirm('Hesabınızı geçici olarak devre dışı bırakmak istediğinizden emin misiniz? Bu işlem geri alınabilir.')) {
+                showNotification('Hesabınız geçici olarak devre dışı bırakıldı.', 'warning');
+            }
+        }
+
+        function deleteAllAds() {
+            const confirmation = prompt('Tüm ilanlarınızı kalıcı olarak silmek istediğinizden emin misiniz? Bu işlemi onaylamak için "TÜM İLANLARI SİL" yazın:');
+            if (confirmation === 'TÜM İLANLARI SİL') {
+                showNotification('Tüm ilanlarınız kalıcı olarak silindi.', 'error');
+            } else if (confirmation !== null) {
+                showNotification('Doğrulama metni yanlış. İşlem iptal edildi.', 'info');
+            }
+        }
+
+        function deleteAccount() {
+            const confirmation = prompt('Hesabınızı kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem GERİ ALINAMAZ! Onaylamak için "HESABI SİL" yazın:');
+            if (confirmation === 'HESABI SİL') {
+                if (confirm('Son uyarı: Bu işlem tüm verilerinizi kalıcı olarak silecek ve geri alınamaz. Devam etmek istediğinizden emin misiniz?')) {
+                    showNotification('Hesabınız silme işlemine alındı. 30 gün içinde işlem tamamlanacak.', 'error');
+                }
+            } else if (confirmation !== null) {
+                showNotification('Doğrulama metni yanlış. İşlem iptal edildi.', 'info');
+            }
+        }
+
+        // Initialize
+        updateTotalSize();
+    </script>
+</body>
+</html>

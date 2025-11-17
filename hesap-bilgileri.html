@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Bilgileri - Verde</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-main">
+            <div class="search-container">
+                <a href="index.html" class="site-logo">
+                    <div class="logo-icon">V</div>
+                    <div class="logo-text">Verde</div>
+                </a>
+            </div>
+
+            <!-- Auth buttons for logged out users -->
+            <div class="auth-buttons" style="display: none;">
+                <button class="login-btn" onclick="window.location.href='login.html'">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Giriş Yap
+                </button>
+                <button class="signup-btn" onclick="window.location.href='login.html'">
+                    <i class="fas fa-user-plus"></i>
+                    Kayıt Ol
+                </button>
+            </div>
+            
+            <!-- User menu for logged in users -->
+            <div class="user-menu" style="display: none;">
+                <button class="user-button">
+                    <img src="https://placehold.co/32x32" alt="Profil" class="avatar">
+                    <span>Hesabım</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="https://placehold.co/40x40" alt="Profil" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Kullanıcı Adı</span>
+                            <span class="user-email">kullanici@example.com</span>
+                        </div>
+                    </div>
+                    <hr class="dropdown-divider">
+                    <a href="profil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profilim</span>
+                    </a>
+                    <a href="ilanlarim.html" class="dropdown-item">
+                        <i class="fas fa-list"></i>
+                        <span>İlanlarım</span>
+                    </a>
+                    <a href="favorilerim.html" class="dropdown-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Favorilerim</span>
+                    </a>
+                    <a href="mesajlar.html" class="dropdown-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mesajlarım</span>
+                        <span class="notification-count">2</span>
+                    </a>
+                    <a href="ayarlar.html" class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Ayarlar</span>
+                    </a>
+                    <hr class="dropdown-divider">
+                    <a href="#logout" class="dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Çıkış Yap</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="settings-page">
+        <div class="container">
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="ayarlar.html"><i class="fas fa-cog"></i> Ayarlar</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Hesap Bilgileri</span>
+                </div>
+                <h1><i class="fas fa-user"></i> Hesap Bilgileri</h1>
+                <p class="header-subtitle">Kişisel bilgilerinizi güncelleyin</p>
+            </div>
+
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <nav class="settings-nav">
+                        <a href="hesap-bilgileri.html" class="nav-item active">
+                            <i class="fas fa-user"></i>
+                            <span>Hesap Bilgileri</span>
+                        </a>
+                        <a href="guvenlik.html" class="nav-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Güvenlik</span>
+                        </a>
+                        <a href="gizlilik.html" class="nav-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Gizlilik</span>
+                        </a>
+                        <a href="bildirimler.html" class="nav-item">
+                            <i class="fas fa-bell"></i>
+                            <span>Bildirimler</span>
+                        </a>
+                        <a href="gorunum.html" class="nav-item">
+                            <i class="fas fa-palette"></i>
+                            <span>Görünüm</span>
+                        </a>
+                        <a href="premium.html" class="nav-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Premium</span>
+                        </a>
+                        <a href="veri-yonetimi.html" class="nav-item">
+                            <i class="fas fa-download"></i>
+                            <span>Veri Yönetimi</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="settings-content">
+                    <div class="settings-section active">
+                        <div class="section-header">
+                            <h2>Hesap Bilgileri</h2>
+                            <p>Kişisel bilgilerinizi buradan güncelleyebilirsiniz</p>
+                        </div>
+
+                        <!-- Profil Fotoğrafı -->
+                        <div class="settings-card">
+                            <h3>Profil Fotoğrafı</h3>
+                            <div class="profile-photo-section">
+                                <div class="current-photo">
+                                    <img src="https://via.placeholder.com/120x120/10b981/ffffff?text=U" alt="Profil Fotoğrafı" id="profileImage">
+                                </div>
+                                <div class="photo-actions">
+                                    <button class="btn-primary" onclick="document.getElementById('photoInput').click()">
+                                        <i class="fas fa-upload"></i>
+                                        Fotoğraf Yükle
+                                    </button>
+                                    <button class="btn-secondary" onclick="removeProfilePhoto()">
+                                        <i class="fas fa-trash"></i>
+                                        Kaldır
+                                    </button>
+                                    <input type="file" id="photoInput" accept="image/*" style="display: none;" onchange="handlePhotoUpload(this)">
+                                    <small>JPG, PNG veya GIF formatında, maksimum 5MB</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kişisel Bilgiler -->
+                        <div class="settings-card">
+                            <h3>Kişisel Bilgiler</h3>
+                            <form class="settings-form" id="personalInfoForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">Ad</label>
+                                        <input type="text" id="firstName" name="firstName" placeholder="Adınız">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Soyad</label>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Soyadınız">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">E-posta Adresi</label>
+                                    <input type="email" id="email" name="email" placeholder="ornek@email.com">
+                                    <small>E-posta değiştirme işlemi için doğrulama gerekir</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Telefon Numarası</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+90 555 123 45 67">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="birthDate">Doğum Tarihi</label>
+                                    <input type="date" id="birthDate" name="birthDate">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gender">Cinsiyet</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Seçiniz</option>
+                                        <option value="male">Erkek</option>
+                                        <option value="female">Kadın</option>
+                                        <option value="other">Diğer</option>
+                                        <option value="prefer-not-to-say">Belirtmek İstemiyorum</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Değişiklikleri Kaydet
+                                    </button>
+                                    <button type="button" class="btn-secondary" onclick="resetForm()">
+                                        <i class="fas fa-undo"></i>
+                                        Sıfırla
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Adres Bilgileri -->
+                        <div class="settings-card">
+                            <h3>Adres Bilgileri</h3>
+                            <form class="settings-form" id="addressForm">
+                                <div class="form-group">
+                                    <label for="city">Şehir</label>
+                                    <select id="city" name="city">
+                                        <option value="">Şehir seçiniz</option>
+                                        <option value="istanbul">İstanbul</option>
+                                        <option value="ankara">Ankara</option>
+                                        <option value="izmir">İzmir</option>
+                                        <option value="antalya">Antalya</option>
+                                        <option value="bursa">Bursa</option>
+                                        <option value="adana">Adana</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="district">İlçe</label>
+                                    <select id="district" name="district">
+                                        <option value="">Önce şehir seçiniz</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">Adres</label>
+                                    <textarea id="address" name="address" placeholder="Tam adresinizi yazınız" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Adresi Kaydet
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Profile photo upload
+        function handlePhotoUpload(input) {
+            const file = input.files[0];
+            if (file) {
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Dosya boyutu 5MB\'dan büyük olamaz.');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                    showNotification('Profil fotoğrafı başarıyla güncellendi!', 'success');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeProfilePhoto() {
+            document.getElementById('profileImage').src = 'https://via.placeholder.com/120x120/cccccc/666666?text=?';
+            showNotification('Profil fotoğrafı kaldırıldı.', 'success');
+        }
+
+        function resetForm() {
+            document.getElementById('personalInfoForm').reset();
+            showNotification('Form sıfırlandı.', 'info');
+        }
+
+        // Form submissions
+        document.getElementById('personalInfoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn-primary');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Kaydediliyor...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showNotification('Kişisel bilgileriniz başarıyla güncellendi!', 'success');
+            }, 1500);
+        });
+
+        document.getElementById('addressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.btn-primary');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Kaydediliyor...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                showNotification('Adres bilgileriniz başarıyla kaydedildi!', 'success');
+            }, 1500);
+        });
+
+        // City-district dependency
+        document.getElementById('city').addEventListener('change', function() {
+            const district = document.getElementById('district');
+            const cityDistricts = {
+                'istanbul': ['Kadıköy', 'Beşiktaş', 'Şişli', 'Beyoğlu', 'Fatih', 'Üsküdar'],
+                'ankara': ['Çankaya', 'Keçiören', 'Yenimahalle', 'Mamak', 'Sincan'],
+                'izmir': ['Konak', 'Karşıyaka', 'Bornova', 'Buca', 'Bayraklı'],
+                'antalya': ['Muratpaşa', 'Kepez', 'Konyaaltı', 'Aksu', 'Döşemealtı'],
+                'bursa': ['Osmangazi', 'Nilüfer', 'Yıldırım', 'Mudanya', 'Gemlik'],
+                'adana': ['Seyhan', 'Yüreğir', 'Çukurova', 'Sarıçam', 'Karaisalı']
+            };
+            
+            district.innerHTML = '<option value="">İlçe seçiniz</option>';
+            
+            if (this.value && cityDistricts[this.value]) {
+                cityDistricts[this.value].forEach(dist => {
+                    const option = document.createElement('option');
+                    option.value = dist.toLowerCase();
+                    option.textContent = dist;
+                    district.appendChild(option);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
