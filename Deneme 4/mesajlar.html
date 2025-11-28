@@ -70,23 +70,7 @@
     <!-- Mesajlarım Sayfası İçeriği -->
     <main class="messages-page">
         <div class="container">
-            <!-- Sayfa Başlığı -->
-            <div class="page-header">
-                <div class="header-content">
-                    <h1><i class="fas fa-envelope"></i> Mesajlarım</h1>
-                    <p class="header-subtitle">İlan sahipleri ile iletişime geçin ve sorularınızı sorun</p>
-                </div>
-                <div class="message-actions">
-                    <button class="mark-all-read-btn">
-                        <i class="fas fa-check-double"></i>
-                        Tümünü Okundu İşaretle
-                    </button>
-                    <button class="delete-all-btn">
-                        <i class="fas fa-trash-alt"></i>
-                        Seçilenleri Sil
-                    </button>
-                </div>
-            </div>
+            
 
             <!-- Mesajlaşma Arayüzü -->
             <div class="messages-container">
@@ -216,15 +200,25 @@
 
                     <!-- İlan Bilgisi -->
                     <div class="ad-reference">
-                        <img src="https://via.placeholder.com/60x60/10b981/ffffff?text=Villa" alt="İlan">
+                        <img src="pexels-mikebirdy-170811.jpg" alt="İlan">
                         <div class="ad-info">
                             <h5>Bahçeli Müstakil Villa</h5>
                             <p>5.225.000 TL - Bursa, Nilüfer</p>
                         </div>
                         <button class="view-ad-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            İlanı Gör
-                        </button>
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                        İlanı Gör
+                                                </button>
+                                                <script>
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    var btn = document.querySelector('.view-ad-btn');
+                                                    if (btn) {
+                                                        btn.addEventListener('click', function() {
+                                                            window.location.href = 'ilan-detay.html';
+                                                        });
+                                                    }
+                                                });
+                                                </script>
                     </div>
 
                     <!-- Mesajlar -->

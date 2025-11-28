@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERDE V.1.0 - Sayfa 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sayfa2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-main">
+            <div class="site-logo">
+                <div class="logo-icon">V</div>
+                <h1 class="logo-text">VERDE</h1>
+            </div>
+            <button class="post-ad-button">
+                <i class="fas fa-plus-circle"></i>
+                <span>İlan Ver</span>
+            </button>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="İlan, kategori veya konum ara...">
+                    <button class="search-button">Ara</button>
+                    <button class="filter-toggle">Filtreler</button>
+                </div>
+                <div class="advanced-filters">
+                    <div class="filter-section">
+                        <h3>Konum</h3>
+                        <select class="location-select">
+                            <option value="">Tüm Şehirler</option>
+                            <option value="istanbul">İstanbul</option>
+                            <option value="ankara">Ankara</option>
+                            <option value="izmir">İzmir</option>
+                        </select>
+                        <select class="district-select">
+                            <option value="">Tüm İlçeler</option>
+                        </select>
+                    </div>
+                    <div class="filter-section">
+                        <h3>Fiyat Aralığı</h3>
+                        <div class="price-range">
+                            <input type="number" placeholder="Min" class="price-input">
+                            <span>-</span>
+                            <input type="number" placeholder="Max" class="price-input">
+                            <select class="currency-select">
+                                <option value="TL">TL</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-section">
+                        <h3>Özellikler</h3>
+                        <div class="property-filters">
+                            <label><input type="checkbox" value="acil"> Acil</label>
+                            <label><input type="checkbox" value="son24saat"> Son 24 Saat</label>
+                            <label><input type="checkbox" value="pazarlik"> Pazarlıklı</label>
+                            <label><input type="checkbox" value="krediye-uygun"> Krediye Uygun</label>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="apply-filters">Filtrele</button>
+                        <button class="clear-filters">Temizle</button>
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="mesajlar.html" class="header-icon">
+                    <i class="fas fa-comments"></i>
+                    <span class="notification-badge">2</span>
+                </a>
+                <a href="#notifications" class="header-icon" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </a>
+                <a href="favorilerim.html" class="header-icon">
+                    <i class="fas fa-heart"></i>
+                    <span class="notification-badge">12</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Ana İçerik -->
+    <main class="main-content">
+        <!-- Kategoriler -->
+        <section class="categories-section">
+            <div class="category-grid">
+                <a href="#" class="category-card">
+                    <i class="fas fa-home"></i>
+                    <div class="category-card-content">
+                        <h3>Konut</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-car"></i>
+                    <div class="category-card-content">
+                        <h3>Vasıta</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-building"></i>
+                    <div class="category-card-content">
+                        <h3>İş Yeri</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-couch"></i>
+                    <div class="category-card-content">
+                        <h3>Ev Eşyası</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-laptop"></i>
+                    <div class="category-card-content">
+                        <h3>Elektronik</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-tshirt"></i>
+                    <div class="category-card-content">
+                        <h3>Giyim</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-gamepad"></i>
+                    <div class="category-card-content">
+                        <h3>Hobi</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="category-card-content">
+                        <h3>İş İlanları</h3>
+                        <p>0 ilan</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <!-- Vitrin İlanları -->
+        <section class="featured-listings">
+            <div class="section-header">
+                <h2>Vitrin İlanları</h2>
+                <div class="view-controls">
+                    <button class="view-button active"><i class="fas fa-th-large"></i></button>
+                    <button class="view-button"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+            <div class="listings-grid">
+                <!-- Sadece bir örnek ilan: deneme -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="https://via.placeholder.com/300x200/0ea5e9/ffffff?text=Deneme" alt="Deneme İlan Görseli">
+                        <div class="listing-badge featured">Vitrin</div>
+                        <button class="favorite-button">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="listing-content">
+                        <h3 class="listing-title">deneme</h3>
+                        <p class="listing-price">₺1.000</p>
+                        <p class="listing-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Kadıköy, İstanbul
+                        </p>
+                        <div class="listing-features">
+                            <span><i class="fas fa-ruler-combined"></i> 100m²</span>
+                            <span><i class="fas fa-bed"></i> 2+1</span>
+                            <span><i class="fas fa-building"></i> 1.kat</span>
+                        </div>
+                        <div class="listing-meta">
+                            <span class="listing-date">
+                                <i class="fas fa-calendar"></i>
+                                Bugün
+                            </span>
+                        </div>
+                        <button class="view-ad-btn" onclick="window.location.href='ilan-detay.html'">İlanı Gör</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Sayfalama -->
+            <div class="pagination">
+                <button class="prev" onclick="window.location.href='index.html'"><i class="fas fa-chevron-left"></i></button>
+                <button class="page-number" onclick="window.location.href='index.html'">1</button>
+                <button class="page-number active">2</button>
+                <button class="next" disabled><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </main>
+    <!-- Hızlı İlan Verme Butonu -->
+    <button class="post-ad-fab">
+        <i class="fas fa-plus"></i>
+        <span>İlan Ver</span>
+    </button>
+    <script src="sayfa2.js"></script>
+</body>
+</html>

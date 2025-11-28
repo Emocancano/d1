@@ -1,0 +1,32 @@
+/* sayfa2.css - 2. sayfa için özel stiller */
+
+body {
+    background: var(--background, #f8fafc);
+}
+
+.featured-listings {
+    margin-top: 32px;
+}
+
+.listing-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s;
+}
+
+.listing-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.listing-title {
+    color: #0ea5e9;
+    font-weight: 600;
+}
+
+.pagination .page-number.active {
+    background: #0ea5e9;
+    color: #fff;
+}

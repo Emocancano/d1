@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const types = ['emlak', 'vasita', 'elektronik', 'ev_esyasi'];
         let html = '';
         
-        for(let i = 0; i < 20; i++) {
+        for(let i = 0; i < 4; i++) {
             const type = types[i % types.length]; // Sırayla farklı kategorilerden
             html += createListingCard(type, i, page);
         }
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // İlanları yeniden oluştur
                 let html = '';
-                for(let i = 0; i < 20; i++) {
+                for(let i = 0; i < 4; i++) {
                     const type = types[i % types.length];
                     html += createListingCard(type, i, page, currentViewMode);
                 }
@@ -1901,7 +1901,7 @@ function generateCarFormHTML() {
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carBrand">Marka *</label>
-                        <select id="carBrand" name="marka" required>
+                        <select id="carBrand" name="marka">
                             <option value="">Marka Seçin</option>
                             <option value="toyota">Toyota</option>
                             <option value="volkswagen">Volkswagen</option>
@@ -1917,25 +1917,25 @@ function generateCarFormHTML() {
                     </div>
                     <div class="form-group">
                         <label for="carModel">Model *</label>
-                        <input type="text" id="carModel" name="model" required placeholder="Örn: Corolla, Golf, Focus">
+                        <input type="text" id="carModel" name="model"  placeholder="Örn: Corolla, Golf, Focus">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carYear">Model Yılı *</label>
-                        <input type="number" id="carYear" name="model_yili" required min="1900" max="2025" placeholder="2020">
+                        <input type="number" id="carYear" name="model_yili"  min="1900" max="2025" placeholder="2020">
                     </div>
                     <div class="form-group">
                         <label for="carKm">Kilometre *</label>
-                        <input type="number" id="carKm" name="kilometre" required min="0" placeholder="85000">
+                        <input type="number" id="carKm" name="kilometre"  min="0" placeholder="85000">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carFuel">Yakıt Türü *</label>
-                        <select id="carFuel" name="yakit_turu" required>
+                        <select id="carFuel" name="yakit_turu" >
                             <option value="">Seçin</option>
                             <option value="benzin">Benzin</option>
                             <option value="dizel">Dizel</option>
@@ -1946,7 +1946,7 @@ function generateCarFormHTML() {
                     </div>
                     <div class="form-group">
                         <label for="carTransmission">Vites Türü *</label>
-                        <select id="carTransmission" name="vites_turu" required>
+                        <select id="carTransmission" name="vites_turu" >
                             <option value="">Seçin</option>
                             <option value="manuel">Manuel</option>
                             <option value="otomatik">Otomatik</option>
@@ -1958,7 +1958,7 @@ function generateCarFormHTML() {
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carBody">Kasa Tipi *</label>
-                        <select id="carBody" name="kasa_tipi" required>
+                        <select id="carBody" name="kasa_tipi" >
                             <option value="">Seçin</option>
                             <option value="sedan">Sedan</option>
                             <option value="hatchback">Hatchback</option>
@@ -1971,7 +1971,7 @@ function generateCarFormHTML() {
                     </div>
                     <div class="form-group">
                         <label for="carColor">Renk *</label>
-                        <input type="text" id="carColor" name="renk" required placeholder="Beyaz, Siyah, Gri...">
+                        <input type="text" id="carColor" name="renk"  placeholder="Beyaz, Siyah, Gri...">
                     </div>
                 </div>
                 
@@ -1982,7 +1982,7 @@ function generateCarFormHTML() {
                     </div>
                     <div class="form-group">
                         <label for="carPower">Beygir Gücü (HP) *</label>
-                        <input type="number" id="carPower" name="beygir_gucu" required min="0" placeholder="120">
+                        <input type="number" id="carPower" name="beygir_gucu"  min="0" placeholder="120">
                     </div>
                 </div>
             </div>
@@ -1992,7 +1992,7 @@ function generateCarFormHTML() {
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carDrive">Çekiş Türü *</label>
-                        <select id="carDrive" name="cekis" required>
+                        <select id="carDrive" name="cekis" >
                             <option value="">Seçin</option>
                             <option value="onden-cekis">Önden Çekiş</option>
                             <option value="arkadan-itis">Arkadan İtiş</option>
@@ -2028,7 +2028,7 @@ function generateCarFormHTML() {
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carPrice">Satış Fiyatı (TL) *</label>
-                        <input type="number" id="carPrice" name="fiyat" required min="1000" placeholder="450000">
+                        <input type="number" id="carPrice" name="fiyat"  min="1000" placeholder="450000">
                     </div>
                     <div class="form-group">
                         <label for="carNegotiable">Pazarlık</label>
@@ -2043,18 +2043,18 @@ function generateCarFormHTML() {
                 <div class="form-row">
                     <div class="form-group">
                         <label for="ownerName">Ad Soyad *</label>
-                        <input type="text" id="ownerName" name="satici_adi" required placeholder="İsim Soyisim">
+                        <input type="text" id="ownerName" name="satici_adi"  placeholder="İsim Soyisim">
                     </div>
                     <div class="form-group">
                         <label for="ownerPhone">Telefon *</label>
-                        <input type="tel" id="ownerPhone" name="telefon" required placeholder="0532 123 45 67">
+                        <input type="tel" id="ownerPhone" name="telefon"  placeholder="0532 123 45 67">
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="carCity">Şehir *</label>
-                        <input type="text" id="carCity" name="sehir" required placeholder="İstanbul">
+                        <input type="text" id="carCity" name="sehir"  placeholder="İstanbul">
                     </div>
                     <div class="form-group">
                         <label for="carDistrict">İlçe</label>
@@ -2068,14 +2068,14 @@ function generateCarFormHTML() {
                 <div class="form-row full-width">
                     <div class="form-group">
                         <label for="adTitle">İlan Başlığı *</label>
-                        <input type="text" id="adTitle" name="baslik" required maxlength="120" placeholder="Toyota Corolla 2020 - 85.000 km - 450.000 TL">
+                        <input type="text" id="adTitle" name="baslik"  maxlength="120" placeholder="Toyota Corolla 2020 - 85.000 km - 450.000 TL">
                     </div>
                 </div>
                 
                 <div class="form-row full-width">
                     <div class="form-group">
                         <label for="adDescription">İlan Açıklaması *</label>
-                        <textarea id="adDescription" name="aciklama" required minlength="50" placeholder="Aracınızın detaylı özelliklerini ve durumunu açıklayınız..."></textarea>
+                        <textarea id="adDescription" name="aciklama"  minlength="50" placeholder="Aracınızın detaylı özelliklerini ve durumunu açıklayınız..."></textarea>
                     </div>
                 </div>
             </div>

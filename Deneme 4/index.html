@@ -527,10 +527,7 @@
                 <button class="prev" disabled><i class="fas fa-chevron-left"></i></button>
                 <button class="page-number active">1</button>
                 <button class="page-number" onclick="window.location.href='sayfa2.html'">2</button>
-                <button class="page-number">3</button>
-                <button class="page-number">4</button>
-                <button class="page-number">5</button>
-                <button class="page-number">6</button>
+                <button class="page-number" onclick="window.location.href='sayfa3.html'">3</button>
                 <button class="next" onclick="window.location.href='sayfa2.html'"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
@@ -541,6 +538,7 @@
         <i class="fas fa-plus"></i>
         <span>İlan Ver</span>
     </button>
+
 
     <!-- İlan Verme Modal -->
     <div id="postAdModal" class="modal">
@@ -562,7 +560,7 @@
                             <i class="fas fa-heading"></i>
                             İlan Başlığı *
                         </label>
-                        <input type="text" id="adTitle" name="title" required 
+                        <input type="text" id="adTitle" name="title"  
                                placeholder="Ürün veya hizmetinizi kısaca açıklayın">
                     </div>
                 </div>
@@ -573,7 +571,7 @@
                             <i class="fas fa-tags"></i>
                             Kategori *
                         </label>
-                        <select id="adCategory" name="category" required>
+                        <select id="adCategory" name="category" >
                             <option value="">Kategori Seçin</option>
                             <option value="emlak">🏠 Emlak</option>
                             <option value="vasita">🚗 Vasıta</option>
@@ -597,7 +595,7 @@
                             Fiyat *
                         </label>
                         <div class="price-input-group">
-                            <input type="number" id="adPrice" name="price" required 
+                            <input type="number" id="adPrice" name="price"  
                                    placeholder="0" min="0">
                             <select id="adCurrency" name="currency">
                                 <option value="TL">₺ TL</option>
@@ -614,7 +612,7 @@
                             <i class="fas fa-align-left"></i>
                             Açıklama *
                         </label>
-                        <textarea id="adDescription" name="description" required 
+                        <textarea id="adDescription" name="description"  
                                   placeholder="Ürününüzün detaylarını, özelliklerini ve durumunu açıklayın..."
                                   rows="4"></textarea>
                     </div>
@@ -626,7 +624,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                             Konum *
                         </label>
-                        <select id="adLocation" name="location" required>
+                        <select id="adLocation" name="location" >
                             <option value="">Şehir Seçin</option>
                             <option value="istanbul">İstanbul</option>
                             <option value="ankara">Ankara</option>
@@ -662,7 +660,7 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label class="checkbox-group">
-                            <input type="checkbox" required>
+                            <input type="checkbox" >
                             <span class="checkmark"></span>
                             <a href="gizlilik.html" target="_blank">Kullanım Şartları</a> ve 
                             <a href="veri-yonetimi.html" target="_blank">Gizlilik Politikası</a>'nı okudum ve kabul ediyorum.

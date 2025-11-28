@@ -6,11 +6,6 @@
     <title>Giriş Yap - Verde</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <style>
         .auth-container {
             min-height: 100vh;
@@ -443,10 +438,6 @@
         </div>
     </div>
 
-    <!-- Firebase Configuration -->
-    <script src="firebase-config.js"></script>
-    <script src="firebase-auth.js"></script>
-
     <script>
         // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -496,7 +487,7 @@
             }
         }
 
-        async function handleLogin() {
+        function handleLogin() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             const remember = document.getElementById('rememberMe').checked;
@@ -513,34 +504,28 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Giriş yapılıyor...';
             submitBtn.disabled = true;
 
-            // Firebase ile giriş yap
-            try {
-                const result = await signInWithEmail(email, password);
+            // Simulate login process
+            setTimeout(() => {
+                // Store user data
+                const userData = {
+                    name: email.split('@')[0],
+                    email: email,
+                    isLoggedIn: true,
+                    loginTime: new Date().toISOString()
+                };
                 
-                if (result.success) {
-                    // Başarılı giriş
-                    if (remember) {
-                        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-                    } else {
-                        auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
-                    }
-                    
-                    // Ana sayfaya yönlendir
-                    window.location.href = 'index.html';
+                if (remember) {
+                    localStorage.setItem('verde_user', JSON.stringify(userData));
                 } else {
-                    // Hata mesajı göster
-                    alert(result.error);
-                    submitBtn.innerHTML = originalContent;
-                    submitBtn.disabled = false;
+                    sessionStorage.setItem('verde_user', JSON.stringify(userData));
                 }
-            } catch (error) {
-                alert('Giriş sırasında bir hata oluştu.');
-                submitBtn.innerHTML = originalContent;
-                submitBtn.disabled = false;
-            }
+                
+                // Redirect to homepage
+                window.location.href = 'index.html';
+            }, 1500);
         }
 
-        async function handleSignup() {
+        function handleSignup() {
             const name = document.getElementById('signupName').value;
             const email = document.getElementById('signupEmail').value;
             const password = document.getElementById('signupPassword').value;
@@ -558,11 +543,6 @@
                 return;
             }
             
-            if (password.length < 6) {
-                alert('Şifre en az 6 karakter olmalıdır.');
-                return;
-            }
-            
             if (!acceptTerms) {
                 alert('Lütfen kullanım şartlarını kabul edin.');
                 return;
@@ -574,50 +554,26 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Hesap oluşturuluyor...';
             submitBtn.disabled = true;
 
-            // Firebase ile kayıt ol
-            try {
-                const result = await signUpWithEmail(email, password, name);
+            // Simulate signup process
+            setTimeout(() => {
+                // Store user data
+                const userData = {
+                    name: name,
+                    email: email,
+                    isLoggedIn: true,
+                    loginTime: new Date().toISOString(),
+                    isNewUser: true
+                };
                 
-                if (result.success) {
-                    // Başarılı kayıt
-                    alert('Hesabınız oluşturuldu! E-posta adresinize doğrulama linki gönderildi.');
-                    
-                    // Ana sayfaya yönlendir
-                    window.location.href = 'index.html';
-                } else {
-                    // Hata mesajı göster
-                    alert(result.error);
-                    submitBtn.innerHTML = originalContent;
-                    submitBtn.disabled = false;
-                }
-            } catch (error) {
-                alert('Kayıt sırasında bir hata oluştu.');
-                submitBtn.innerHTML = originalContent;
-                submitBtn.disabled = false;
-            }
+                localStorage.setItem('verde_user', JSON.stringify(userData));
+                
+                // Redirect to homepage
+                window.location.href = 'index.html';
+            }, 2000);
         }
 
-        async function socialLogin(provider) {
-            try {
-                let result;
-                
-                if (provider === 'google') {
-                    result = await signInWithGoogle();
-                } else if (provider === 'facebook') {
-                    result = await signInWithFacebook();
-                }
-                
-                if (result && result.success) {
-                    // Başarılı giriş
-                    window.location.href = 'index.html';
-                } else if (result) {
-                    // Hata mesajı göster
-                    alert(result.error);
-                }
-            } catch (error) {
-                console.error('Sosyal giriş hatası:', error);
-                alert('Giriş sırasında bir hata oluştu.');
-            }
+        function socialLogin(provider) {
+            alert(`${provider.charAt(0).toUpperCase() + provider.slice(1)} ile giriş özelliği yakında eklenecek!`);
         }
     </script>
 </body>
