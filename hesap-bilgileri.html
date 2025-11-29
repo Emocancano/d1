@@ -9,74 +9,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-main">
-            <div class="search-container">
-                <a href="index.html" class="site-logo">
-                    <div class="logo-icon">V</div>
-                    <div class="logo-text">Verde</div>
-                </a>
-            </div>
-
-            <!-- Auth buttons for logged out users -->
-            <div class="auth-buttons" style="display: none;">
-                <button class="login-btn" onclick="window.location.href='login.html'">
-                    <i class="fas fa-sign-in-alt"></i>
-                    Giriş Yap
-                </button>
-                <button class="signup-btn" onclick="window.location.href='login.html'">
-                    <i class="fas fa-user-plus"></i>
-                    Kayıt Ol
-                </button>
-            </div>
-            
-            <!-- User menu for logged in users -->
-            <div class="user-menu" style="display: none;">
-                <button class="user-button">
-                    <img src="https://placehold.co/32x32" alt="Profil" class="avatar">
-                    <span>Hesabım</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="user-dropdown">
-                    <div class="user-info">
-                        <img src="https://placehold.co/40x40" alt="Profil" class="user-avatar">
-                        <div class="user-details">
-                            <span class="user-name">Kullanıcı Adı</span>
-                            <span class="user-email">kullanici@example.com</span>
-                        </div>
-                    </div>
-                    <hr class="dropdown-divider">
-                    <a href="profil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i>
-                        <span>Profilim</span>
-                    </a>
-                    <a href="ilanlarim.html" class="dropdown-item">
-                        <i class="fas fa-list"></i>
-                        <span>İlanlarım</span>
-                    </a>
-                    <a href="favorilerim.html" class="dropdown-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Favorilerim</span>
-                    </a>
-                    <a href="mesajlar.html" class="dropdown-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Mesajlarım</span>
-                        <span class="notification-count">2</span>
-                    </a>
-                    <a href="ayarlar.html" class="dropdown-item">
-                        <i class="fas fa-cog"></i>
-                        <span>Ayarlar</span>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#logout" class="dropdown-item logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Çıkış Yap</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
+    <div id="header-placeholder"></div>
     <main class="settings-page">
         <div class="container">
             <div class="page-header">
@@ -249,8 +182,13 @@
             </div>
         </div>
     </main>
-
+    
+    <script src="auth.js"></script>
+    <script src="ui.js"></script>
+    <script src="listings.js"></script>
+    <script src="layout.js"></script> 
     <script src="script.js"></script>
+
     <script>
         // Profile photo upload
         function handlePhotoUpload(input) {

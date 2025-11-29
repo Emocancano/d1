@@ -10,83 +10,12 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-main">
-            <a href="index.html" class="site-logo">
-                <div class="logo-icon">V</div>
-                <h1 class="logo-text">VERDE</h1>
-            </a>
-            <button class="post-ad-button">
-                <i class="fas fa-plus-circle"></i>
-                <span>Hızlı İlan Ver</span>
-            </button>
-
-
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="İlan, kategori veya konum ara...">
-                </div>
-            </div>
-
-            <!-- Kullanıcı Menüsü -->
-            <div class="user-menu">
-                <button class="user-menu-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Hesabım</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="user-dropdown">
-                    <a href="profil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i>
-                        <span>Profilim</span>
-                    </a>
-                    <a href="ilanlarim.html" class="dropdown-item">
-                        <i class="fas fa-list-alt"></i>
-                        <span>İlanlarım</span>
-                    </a>
-                    <a href="favorilerim.html" class="dropdown-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Favorilerim</span>
-                    </a>
-                    <a href="mesajlar.html" class="dropdown-item active">
-                        <i class="fas fa-envelope"></i>
-                        <span>Mesajlarım</span>
-                    </a>
-                    <a href="ayarlar.html" class="dropdown-item">
-                        <i class="fas fa-cog"></i>
-                        <span>Ayarlar</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Çıkış Yap</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Mesajlarım Sayfası İçeriği -->
     <main class="messages-page">
         <div class="container">
-            <!-- Sayfa Başlığı -->
-            <div class="page-header">
-                <div class="header-content">
-                    <h1><i class="fas fa-envelope"></i> Mesajlarım</h1>
-                    <p class="header-subtitle">İlan sahipleri ile iletişime geçin ve sorularınızı sorun</p>
-                </div>
-                <div class="message-actions">
-                    <button class="mark-all-read-btn">
-                        <i class="fas fa-check-double"></i>
-                        Tümünü Okundu İşaretle
-                    </button>
-                    <button class="delete-all-btn">
-                        <i class="fas fa-trash-alt"></i>
-                        Seçilenleri Sil
-                    </button>
-                </div>
-            </div>
+            
 
             <!-- Mesajlaşma Arayüzü -->
             <div class="messages-container">
@@ -216,15 +145,25 @@
 
                     <!-- İlan Bilgisi -->
                     <div class="ad-reference">
-                        <img src="https://via.placeholder.com/60x60/10b981/ffffff?text=Villa" alt="İlan">
+                        <img src="pexels-mikebirdy-170811.jpg" alt="İlan">
                         <div class="ad-info">
                             <h5>Bahçeli Müstakil Villa</h5>
                             <p>5.225.000 TL - Bursa, Nilüfer</p>
                         </div>
                         <button class="view-ad-btn">
-                            <i class="fas fa-external-link-alt"></i>
-                            İlanı Gör
-                        </button>
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                        İlanı Gör
+                                                </button>
+                                                <script>
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    var btn = document.querySelector('.view-ad-btn');
+                                                    if (btn) {
+                                                        btn.addEventListener('click', function() {
+                                                            window.location.href = 'ilan-detay.html';
+                                                        });
+                                                    }
+                                                });
+                                                </script>
                     </div>
 
                     <!-- Mesajlar -->
@@ -323,7 +262,10 @@
             </div>
         </div>
     </main>
-
+    <script src="auth.js"></script>
+    <script src="ui.js"></script>
+    <script src="listings.js"></script>
+    <script src="layout.js"></script> 
     <script src="script.js"></script>
 </body>
 </html>

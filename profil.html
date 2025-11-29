@@ -10,62 +10,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-main">
-            <a href="index.html" class="site-logo">
-                <div class="logo-icon">V</div>
-                <h1 class="logo-text">VERDE</h1>
-            </a>
-            <button class="post-ad-button">
-                <i class="fas fa-plus-circle"></i>
-                <span>Hızlı İlan Ver</span>
-            </button>
-
-
-            <div class="search-container">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="İlan, kategori veya konum ara...">
-                </div>
-            </div>
-
-            <!-- Kullanıcı Menüsü -->
-            <div class="user-menu">
-                <button class="user-menu-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Hesabım</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="user-dropdown">
-                    <a href="profil.html" class="dropdown-item active">
-                        <i class="fas fa-user"></i>
-                        <span>Profilim</span>
-                    </a>
-                    <a href="ilanlarim.html" class="dropdown-item">
-                        <i class="fas fa-list-alt"></i>
-                        <span>İlanlarım</span>
-                    </a>
-                    <a href="favorilerim.html" class="dropdown-item">
-                        <i class="fas fa-heart"></i>
-                        <span>Favorilerim</span>
-                    </a>
-                    <a href="mesajlar.html" class="dropdown-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>Mesajlarım</span>
-                    </a>
-                    <a href="ayarlar.html" class="dropdown-item">
-                        <i class="fas fa-cog"></i>
-                        <span>Ayarlar</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Çıkış Yap</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Profil Sayfası İçeriği -->
     <main class="profile-page">
@@ -79,19 +24,19 @@
                     <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                 </div>
                 <div class="profile-info">
-                    <h1 class="profile-name">Ahmet Yılmaz</h1>
-                    <p class="profile-title">Premium Üye</p>
+                    <h1 class="profile-name">Emir Tuncel</h1>
+                    <p class="profile-title">Boss</p>
                     <div class="profile-stats">
                         <div class="stat-item">
-                            <span class="stat-number">12</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Aktif İlan</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">45</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Toplam İlan</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">4.8</span>
+                            <span class="stat-number">0</span>
                             <span class="stat-label">Değerlendirme</span>
                         </div>
                     </div>
@@ -142,26 +87,24 @@
                         <div class="info-grid">
                             <div class="info-group">
                                 <label>Ad Soyad</label>
-                                <input type="text" value="Ahmet Yılmaz" readonly>
+                                <input type="text" value="Emir Tuncel" readonly>
                             </div>
                             <div class="info-group">
                                 <label>E-posta</label>
-                                <input type="email" value="ahmet.yilmaz@email.com" readonly>
+                                <input type="email" value="emir.tuncel9999@gmail.com" readonly>
                             </div>
                             <div class="info-group">
                                 <label>Telefon</label>
-                                <input type="tel" value="+90 555 123 4567" readonly>
+                                <input type="tel" value="+356 9999 99 99" readonly>
                             </div>
                             <div class="info-group">
                                 <label>Doğum Tarihi</label>
-                                <input type="date" value="1990-05-15" readonly>
+                                <input type="date" value="2003-12-02" readonly>
                             </div>
                             <div class="info-group">
                                 <label>Şehir</label>
                                 <select disabled>
                                     <option>İstanbul</option>
-                                    <option>Ankara</option>
-                                    <option>İzmir</option>
                                 </select>
                             </div>
                             <div class="info-group">
@@ -256,7 +199,11 @@
             </div>
         </div>
     </main>
-
+    
+    <script src="auth.js"></script>
+    <script src="ui.js"></script>
+    <script src="listings.js"></script>
+    <script src="layout.js"></script> 
     <script src="script.js"></script>
 </body>
 </html>
